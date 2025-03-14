@@ -55,7 +55,7 @@ body {
 
 /* Padding for spacing */
 .inner {
-  padding: 30px;
+  padding: 10px;
 }
 
 .inner small {
@@ -132,6 +132,68 @@ ul li a {
 ul li a:hover {
     color: #007bff; /* Optional: change text color on hover */
 }
+
+.stylish-image {
+    border: 5px solid #001BFF; /* Blue border */
+    border-radius: 20px; /* Rounded corners */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.3s; /* Smooth scale effect */
+  }
+  
+  .stylish-image:hover {
+    transform: scale(1.05); /* Scale up on hover */
+  }
+
+/* Header styles */
+      .menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 20px;
+        background-color: #606060; /* Dark background color */
+        margin: 0 auto;
+        max-width: 1000px;
+      }
+
+      .menu-header img {
+        height: 70px; /* Adjust the height of the image */
+      }
+
+      .menu-menu {
+        list-style-type: none;
+        display: flex;
+        gap: 50px;
+      }
+
+      .menu-menu li {
+        margin: 0;
+      }
+
+      .menu-menu a {
+        text-decoration: none;
+        color: #f8f9fa;
+        font-weight: bold;
+        font-size: 32px; /* Adjust the size as needed */
+      }
+
+      .menu-menu a:hover {
+        color: #007bff; /* Hover effect */
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @media (min-width: 768px) {
