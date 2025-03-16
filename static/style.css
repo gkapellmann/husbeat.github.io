@@ -103,37 +103,44 @@ code {
  * Affix and center
  */
  
- /* Background image only on the top */
-.header-background {
-    background: url('../media/Background.jpg') no-repeat center top;
-    background-size: cover;
-    width: 100%;
-    height: 500px; /* Adjust height as needed */
-    display: flex;
-    align-items: flex-start; /* Push logo to the bottom */
-    justify-content: center;
-    padding-top: 40px; /* Adds spacing from the top */
-}
-
-/* Center the logo */
-.img-me {
-    display: block;
-    margin: 0 auto; /* Centers horizontally */
-    max-width: 55%; /* Ensures responsiveness */
+ 
+ /* Ensures the modal image fits well */
+  .modal-body img {
+    max-width: 100%;
     height: auto;
-} 
-
-ul li a {
-    font-size: 24px; /* Adjust to your desired size */
-    font-weight: bold; /* Makes the text bold */
-    text-decoration: none; /* Optional: remove the underline */
-}
-
-ul li a:hover {
-    color: #007bff; /* Optional: change text color on hover */
-}
-
-.stylish-image {
+  }
+ 
+ /* Background image only on the top */
+  .header-background {
+      background: url('../media/Background.jpg') no-repeat center top;
+      background-size: cover;
+      width: 100%;
+      height: 500px; /* Adjust height as needed */
+      display: flex;
+      align-items: flex-start; /* Push logo to the bottom */
+      justify-content: center;
+      padding-top: 40px; /* Adds spacing from the top */
+  }
+  
+  /* Center the logo */
+  .img-me {
+      display: block;
+      margin: 0 auto; /* Centers horizontally */
+      max-width: 55%; /* Ensures responsiveness */
+      height: auto;
+  } 
+  
+  ul li a {
+      font-size: 24px; /* Adjust to your desired size */
+      font-weight: bold; /* Makes the text bold */
+      text-decoration: none; /* Optional: remove the underline */
+  }
+  
+  ul li a:hover {
+      color: #007bff; /* Optional: change text color on hover */
+  }
+  
+  .stylish-image {
     border: 5px solid #001BFF; /* Blue border */
     border-radius: 20px; /* Rounded corners */
     height: auto; /* Maintain aspect ratio */
@@ -142,6 +149,10 @@ ul li a:hover {
   
   .stylish-image:hover {
     transform: scale(1.05); /* Scale up on hover */
+  }
+
+  .stylish-image-click {
+    cursor: pointer;
   }
 
 /* Header styles */
@@ -179,6 +190,51 @@ ul li a:hover {
       .menu-menu a:hover {
         color: #007bff; /* Hover effect */
       }
+
+/* Styling for the top index */
+.index_rent {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 10px;
+    background: #222;
+    color: white;
+}
+
+/* Styling for category blocks */
+.category_rent {
+    text-align: center;
+    border-right: 1px solid grey; /* Add a line between categories */
+    padding-right: 20px; /* Adds some space after the category before the line */
+}
+
+.category_rent:last-child {
+    border-right: none; /* Remove the line for the last category */
+}
+
+.category_rent ul {
+    padding: 0;
+    margin: 10px 0 0 0; /* Add space between category and sub-items */
+}
+
+.category_rent li {
+    text-align: left; /* Align the sub-item text to the left */
+}
+
+/* Styling for links */
+.index_rent a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    padding: 5px;
+}
+
+.index_rent a:hover {
+    text-decoration: underline;
+}
+
+
 
 
 
