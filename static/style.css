@@ -231,19 +231,13 @@ ul li a {
     font-weight: bold;
     display: block;
     padding: 5px;
+    max-width: 100%;
+    overflow: hidden;
 }
 
     .index_rent a:hover {
         text-decoration: underline;
     }
-
-
-
-
-
-
-
-
 
 
 
@@ -280,10 +274,39 @@ ul li a {
 
 
 
+.bundle-container {
+    display: flex;
+    flex-wrap: wrap; /* Ensures responsiveness */
+    gap: 20px; /* Adds space between images and text */
+    align-items: center;
+}
 
+.bundle-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; /* Allows wrapping on small screens */
+}
 
+    .bundle-images img {
+        width: 120px; /* Adjust size */
+        height: auto;
+        border-radius: 8px; /* Optional: rounded corners */
+    }
 
+.bundle-text {
+    flex: 1; /* Makes text take up the remaining space */
+}
 
+@media (max-width: 768px) {
+    .bundle-container {
+        flex-direction: column; /* Stacks images and text */
+        text-align: center;
+    }
+
+    .bundle-images {
+        justify-content: center; /* Centers images */
+    }
+}
 
 
 
