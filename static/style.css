@@ -309,13 +309,13 @@ ul li a {
 }
 
 
-
-
-
-
-
-
-
+.concepts-image {
+    max-width: 100%;    /* Ensures it stays responsive */
+    width: 80%;         /* Adjusts the size, increase/decrease as needed */
+    display: block;
+    margin: 0 auto; /* Centers horizontally */
+    height: auto;
+}
 
 
 @media (min-width: 768px) {
