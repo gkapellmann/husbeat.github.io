@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,62 +20,66 @@
 
     <title>Husbeat</title>
 
-  </head>
+</head>
 
-  <body style="">
+<body style="">
     <div class="site-wrapper">
-      <div class="site-wrapper-inner">
-        <div class="cover-container">
-          <div class="inner cover">
-            
-            <div class="header-background">
-              <img src="./media/Husbeat_Logo_tr.png" alt="Husbeat Logo" title="Husbeat Logo" class="img-me img-fluid">
-            </div>
-            
-            <div class="row">
-              
-              <h1 class="cover-heading">Welcome to my space!</h1>
-                <p></p>
-                <p>I’m a DJ with a passion for Trance, House and Latin vibes. I always try to keep exploring new sounds and rhythms, music is all about energy, connection, and creating moments that people can enjoy and remember.
-                <p>I also can rent DJ & audio equipment. Speakers, consoles, DJ decks or controllers. Explore my rentals section and find out if there is anything you might be interested in!</p>
-                <p>In addition, I have over 10 years of experience organizing events of all sizes. And for those big and complex events, I have a team of DJs that are always ready to make sure the music never stops.</p>
-                <p>But wait... are you actually interested in learning? Well, I can offer you private DJ lessons. They are suitable for anyone who wants to dive into the art of mixing.</p>
-                <p>Thank you for stopping by!</p>
-                <p>Feel free to check out my website and social media, book a service, or just say hi.</p>
-                <p></p>
-                <p>Enjoy!</p>
-                
-                </p>
-                
-                <p></p>
-                <ul>
-                  <li><a href="/sub_djservices.html">DJ Services</a></li>
-                  <li><a href="/sub_rentals.html">Rental of Equipment</a></li>
-                  <li><a href="/sub_lessons.html">Private Lessons</a></li>
-                </ul>
+        <div class="site-wrapper-inner">
+            <div class="cover-container">
+                <div class="inner cover">
 
-                <p class="footer links">
-                  <a href="https://www.facebook.com/Husbeat" target="_blank" rel="noopener" title="Facebook">
-                    <i class="fab fa-facebook" aria-hidden="true"></i>
-                  </a>
-                  ·
-                  <a href="https://www.instagram.com/husbeat/" target="_blank" rel="noopener" title="Instagram">
-                    <i class="fab fa-instagram" aria-hidden="true"></i>
-                  </a>
-                  ·
-                  <a href="https://www.tiktok.com/@husbeat" target="_blank" rel="noopener" title="TikTok">
-                    <i class="fab fa-tiktok" aria-hidden="true"></i>
-                  </a>
-                  
-                </p>
-                
-            </div>
-            
-          </div>
+                    <div id="header-placeholder"></div>
+                    <script>
+                        fetch('/components/header.html')
+                            .then(response => response.text())
+                            .then(data => {
+                                document.getElementById('header-placeholder').innerHTML = data;
+                            })
+                            .catch(error => console.error('Error loading header:', error));
+                    </script>
 
+                    <!-- Spacer div -->
+                    <div style="height: 80px;"></div>
+
+                    <div class="header-background">
+                        <img src="./media/Husbeat_Logo_tr.png" alt="Husbeat Logo" title="Husbeat Logo" class="img-me img-fluid">
+                    </div>
+
+                    <div class="row">
+
+                        <h1 class="cover-heading">Welcome to my space!</h1>
+                        <p></p>
+                        <p>I’m a DJ with a passion for Trance, House and Latin vibes. I always try to keep exploring new sounds and rhythms, music is all about energy, connection, and creating moments that people can enjoy and remember.
+                        <p>I also can rent DJ & audio equipment. Speakers, consoles, DJ decks or controllers. Explore my rentals section and find out if there is anything you might be interested in!</p>
+                        <p>In addition, I have over 10 years of experience organizing events of all sizes. And for those big and complex events, I have a team of DJs that are always ready to make sure the music never stops.</p>
+                        <p>But wait... are you actually interested in learning? Well, I can offer you private DJ lessons. They are suitable for anyone who wants to dive into the art of mixing.</p>
+                        <p>Thank you for stopping by!</p>
+                        <p>Feel free to check out my website and social media, book a service, or just say hi.</p>
+                        <p></p>
+                        <p>Enjoy!</p>
+
+                        <p class="footer links">
+                            <a href="https://www.facebook.com/Husbeat" target="_blank" rel="noopener" title="Facebook">
+                                <i class="fab fa-facebook" aria-hidden="true"></i>
+                            </a>
+                            ·
+                            <a href="https://www.instagram.com/husbeat/" target="_blank" rel="noopener" title="Instagram">
+                                <i class="fab fa-instagram" aria-hidden="true"></i>
+                            </a>
+                            ·
+                            <a href="https://www.tiktok.com/@husbeat" target="_blank" rel="noopener" title="TikTok">
+                                <i class="fab fa-tiktok" aria-hidden="true"></i>
+                            </a>
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
         </div>
-      </div>
     </div>
 
 
-</body></html>
+</body>
+</html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,89 +20,86 @@
 
     <title> Husbeat | DJ Services </title>
 
-  </head>
+</head>
 
+<body class="subpage">
 
-  <!-- Header -->
-  <header class="menu-header">
-    <img src="./media/Husbeat-White-Small.png" alt="Logo">
-    <nav>
-      <ul class="menu-menu">
-        <li><a href="/index.html">Home</a></li>
-        <li><a href="/sub_rentals.html">Rentals</a></li>
-        <li><a href="/sub_lessons.html">Lessons</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <body class="subpage">
+    <div id="header-placeholder"></div>
+    <script>
+        fetch('/components/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
 
     <div class="site-wrapper">
-      <div class="site-wrapper-inner">
-        <div class="cover-container">
-          <div class="inner cover">
+        <div class="site-wrapper-inner">
+            <div class="cover-container">
+                <div class="inner cover">
 
-            <div class="row">
-              <div class="col">
-                
-                <h1 class="cover-heading">DJ Services</h1>
+                    <div class="row">
+                        <div class="col">
 
-                  <p></p>
-                  <p> The </p>
+                            <h1 class="cover-heading">DJ Services</h1>
 
-                <h1 class="cover-heading">Established Concepts</h1>
+                            <p></p>
+                            <p> The </p>
 
-                  <h2 id="Academic">Latinology</h2>
-                  <p></p>
-                  <dd class="col-md-12 col-sm-12">
-                    <p> <b>Punch Header</b> </p>
-                    <img src="./media/infohub1.jpg" alt="Info Hub" title="Info Hub" class="img-me img-fluid">
-                    <p></p>
-                    <p> Description... </p>
-                  </dd>
-                  
-                  <h2 id="Academic">The DJ Corner</h2>
-                  <p></p>
-                  <dd class="col-md-12 col-sm-12">
-                    <p> <b>Punch Header</b> </p>
-                    <img src="./media/infohub1.jpg" alt="Info Hub" title="Info Hub" class="img-me img-fluid">
-                    <p></p>
-                    <p> Description... </p>
-                  </dd>
+                            <h1 class="cover-heading">Established Concepts</h1>
 
-                  <h2 id="Academic">Sunrise Sessions</h2>
-                  <p></p>
-                  <dd class="col-md-12 col-sm-12">
-                    <p> <b>Punch Header</b> </p>
-                    <img src="./media/infohub1.jpg" alt="Info Hub" title="Info Hub" class="img-me img-fluid">
-                    <p></p>
-                    <p> Description... </p>
-                  </dd>
-                
-                  <h2 id="Academic">Latinesis</h2>
-                  <p></p>
-                  <dd class="col-md-12 col-sm-12">
-                    <p> <b>Punch Header</b> </p>
-                    <img src="./media/infohub1.jpg" alt="Info Hub" title="Info Hub" class="img-me img-fluid">
-                    <p></p>
-                    <p> Description... </p>
-                  </dd>
-                
-                  <h2 id="Academic">Bodacious [Remixed]</h2>
-                  <p></p>
-                  <dd class="col-md-12 col-sm-12">
-                    <p> <b>Punch Header</b> </p>
-                    <img src="./media/infohub1.jpg" alt="Info Hub" title="Info Hub" class="img-me img-fluid">
-                    <p></p>
-                    <p> Description... </p>
-                  </dd>
-                
-              </div>
+                            <h2 id="Academic">Latinology</h2>
+                            <p></p>
+                            <dd class="col-md-12 col-sm-12">
+                                <p> <b>Punch Header</b> </p>
+                                <img src="./media/infohub1.jpg" alt="Info Hub" title="Info Hub" class="img-me img-fluid">
+                                <p></p>
+                                <p> Description... </p>
+                            </dd>
+
+                            <h2 id="Academic">The DJ Corner</h2>
+                            <p></p>
+                            <dd class="col-md-12 col-sm-12">
+                                <p> <b>Punch Header</b> </p>
+                                <img src="./media/infohub1.jpg" alt="Info Hub" title="Info Hub" class="img-me img-fluid">
+                                <p></p>
+                                <p> Description... </p>
+                            </dd>
+
+                            <h2 id="Academic">Sunrise Sessions</h2>
+                            <p></p>
+                            <dd class="col-md-12 col-sm-12">
+                                <p> <b>Punch Header</b> </p>
+                                <img src="./media/infohub1.jpg" alt="Info Hub" title="Info Hub" class="img-me img-fluid">
+                                <p></p>
+                                <p> Description... </p>
+                            </dd>
+
+                            <h2 id="Academic">Latinesis</h2>
+                            <p></p>
+                            <dd class="col-md-12 col-sm-12">
+                                <p> <b>Punch Header</b> </p>
+                                <img src="./media/infohub1.jpg" alt="Info Hub" title="Info Hub" class="img-me img-fluid">
+                                <p></p>
+                                <p> Description... </p>
+                            </dd>
+
+                            <h2 id="Academic">Bodacious [Remixed]</h2>
+                            <p></p>
+                            <dd class="col-md-12 col-sm-12">
+                                <p> <b>Punch Header</b> </p>
+                                <img src="./media/infohub1.jpg" alt="Info Hub" title="Info Hub" class="img-me img-fluid">
+                                <p></p>
+                                <p> Description... </p>
+                            </dd>
+
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
 
-  </body>
+</body>
 </html>

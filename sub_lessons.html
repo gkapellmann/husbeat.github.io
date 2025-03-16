@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,51 +20,49 @@
 
     <title> Husbeat | Lessons </title>
 
-  </head>
+</head>
 
-  <body class="subpage">
+<body class="subpage">
 
-      <!-- Header -->
-    <header class="menu-header">
-      <img src="./media/Husbeat-White-Small.png" alt="Logo">
-      <nav>
-        <ul class="menu-menu">
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/sub_djservices.html">Services</a></li>
-          <li><a href="/sub_rentals.html">Rentals</a></li>
-        </ul>
-      </nav>
-    </header>
+    <div id="header-placeholder"></div>
+    <script>
+        fetch('/components/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
 
     <div class="site-wrapper">
-      <div class="site-wrapper-inner">
-        <div class="cover-container">
-          <div class="inner cover">
+        <div class="site-wrapper-inner">
+            <div class="cover-container">
+                <div class="inner cover">
 
-            <div class="row">
-              <div class="col">
-                <h1 class="cover-heading">Private Lessons</h1>
+                    <div class="row">
+                        <div class="col">
+                            <h1 class="cover-heading">Private Lessons</h1>
 
-                <p></p>
-  
-                <p>Coming soon...</p>
+                            <p></p>
 
-                <p></p>
+                            <p>Coming soon...</p>
 
-                <h1 class="cover-heading">Group Workshops</h1>
-                
-                <p></p>
-  
-                <p>Coming soon...</p>
+                            <p></p>
 
-                <p></p>
+                            <h1 class="cover-heading">Group Workshops</h1>
 
-              </div>
+                            <p></p>
+
+                            <p>Coming soon...</p>
+
+                            <p></p>
+
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
 
-  </body>
+</body>
 </html>
