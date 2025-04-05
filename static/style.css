@@ -5,6 +5,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 /* Links */
+.links a {
+    display: block; /* Ensures each link appears on a new line */
+    margin: 15px 0; /* Adds spacing between the links */
+    text-align: left;
+}
+
+    .links a:focus {
+        color: #69bee0;
+    }
+
+    .links a:hover {
+        color: #498299;
+        text-decoration: none;
+    }
+
+.links i {
+    font-size: 40px; /* Adjust the size of the icons (larger size) */
+}
+
 a,
 a:focus,
 a:hover {
@@ -85,21 +104,6 @@ code {
     font-size: 100%;
     color: #c35b7d;
 }
-
-.links {
-    font-size: 150%;
-}
-
-
-    .links a,
-    .links a:focus {
-        color: #69bee0;
-    }
-
-        .links a:hover {
-            color: #498299;
-            text-decoration: none;
-        }
 
 
 /*
@@ -310,8 +314,8 @@ ul li a {
 
 
 .concepts-image {
-    max-width: 100%;    /* Ensures it stays responsive */
-    width: 80%;         /* Adjusts the size, increase/decrease as needed */
+    max-width: 100%; /* Ensures it stays responsive */
+    width: 80%; /* Adjusts the size, increase/decrease as needed */
     display: block;
     margin: 0 auto; /* Centers horizontally */
     height: auto;
