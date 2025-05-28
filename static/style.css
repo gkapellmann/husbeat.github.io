@@ -4,26 +4,65 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
-/* Links */
-.links a {
-    display: block; /* Ensures each link appears on a new line */
-    margin: 15px 0; /* Adds spacing between the links */
-    text-align: left;
+/* Intro Buttons */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns of equal width */
+    grid-gap: 60px;     /* space between buttons */
+    width: 800px;       /* Adjust width as needed */
+    height: 300px;      /* Adjust height as needed */
+    margin: 50px auto;
 }
 
-    .links a:focus {
-        color: #69bee0;
+    .grid-container button {
+        padding: 40px;
+        font-size: 30px;
+        background-color: #606060;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
     }
 
-    .links a:hover {
-        color: #498299;
+        .grid-container button:hover {
+            background-color: #698299;
+            transform: scale(1.05);
+        }
+
+        .grid-container button:active {
+            background-color: #598299;
+        }
+
+/******************************************************************************************/
+/* SoMe Links */
+.links {
+    display: flex; /* Make icons appear in a row */
+    gap: 55px; /* Spacing between icons */
+}
+
+    .links a {
+        margin: 0; /* Remove vertical spacing that caused stacking */
+        text-align: left;
         text-decoration: none;
+        color: inherit;
     }
 
-.links i {
-    font-size: 40px; /* Adjust the size of the icons (larger size) */
-}
+        .links a:focus {
+            color: #69bee0;
+        }
 
+        .links a:hover {
+            color: #498299;
+            text-decoration: none;
+        }
+
+    .links i {
+        font-size: 60px; /* Adjust the size of the icons (larger size) */
+    }
+
+
+/******************************************************************************************/
 a,
 a:focus,
 a:hover {
