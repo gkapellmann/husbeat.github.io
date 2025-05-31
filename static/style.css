@@ -4,35 +4,30 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
-/* Intro Buttons */
+/******************************************************************************************/
+/* Index Buttons-Images */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns of equal width */
-    grid-gap: 60px;     /* space between buttons */
-    width: 800px;       /* Adjust width as needed */
-    height: 300px;      /* Adjust height as needed */
-    margin: 50px auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
-    .grid-container button {
-        padding: 40px;
-        font-size: 30px;
-        background-color: #606060;
-        color: white;
-        border: none;
-        border-radius: 12px;
-        cursor: pointer;
-        transition: background-color 0.3s, transform 0.2s;
+.grid-item {
+    background-color: #454545;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+    .grid-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 10px;
     }
-
-        .grid-container button:hover {
-            background-color: #698299;
-            transform: scale(1.05);
-        }
-
-        .grid-container button:active {
-            background-color: #598299;
-        }
 
 /******************************************************************************************/
 /* SoMe Links */
@@ -95,6 +90,7 @@ body {
     font-size: 110%;
 }
 
+/******************************************************************************************/
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
     display: table;
@@ -112,6 +108,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 2em;
+    padding-top: 120px; /* Adjust based on your header's height */
 }
 
 /* Padding for spacing */
@@ -201,13 +198,14 @@ ul li a {
     cursor: pointer;
 }
 
+/******************************************************************************************/
 /* Header styles */
 .menu-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 30px 20px;
-    background-color: #606060; /* Dark background color */
+    background-color: transparent; 
     margin: 0 auto;
     max-width: 1000px;
 }
