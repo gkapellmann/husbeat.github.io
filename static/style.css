@@ -245,6 +245,7 @@ ul li a {
     color: white;
 }
 
+
 /* Styling for category blocks */
 .category_rent {
     text-align: center;
@@ -264,6 +265,25 @@ ul li a {
     .category_rent li {
         text-align: left; /* Align the sub-item text to the left */
     }
+
+
+/* Styling for DJ Services items */
+.services-wrapper {
+    overflow: hidden;   /* Clear float */
+}
+
+.services-img {
+    float: right;
+    width: 400px;       /* Adjust as needed */
+    margin-left: 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+#services_check p {
+    margin-bottom: 1em;
+}
+
 
 /* Styling for links */
 .index_rent a {
