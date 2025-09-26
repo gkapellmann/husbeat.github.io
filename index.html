@@ -26,73 +26,91 @@
     <div class="site-wrapper">
         <div class="site-wrapper-inner">
             <div class="cover-container">
-          
-                    <!--Bootstrap JS (Ensure Bootstrap JavaScript is loaded)-->
-                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-                    <div id="header-placeholder"></div>
-                    <script>
-                        fetch('/components/header.html')
-                            .then(response => response.text())
-                            .then(data => {
-                                document.getElementById('header-placeholder').innerHTML = data;
-                            })
-                            .catch(error => console.error('Error loading header:', error));
-                    </script>
+                <!--Bootstrap JS (Ensure Bootstrap JavaScript is loaded)-->
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-                    <div class="upcoming-events" style="margin-bottom: 60px;">
-                        <h2>Upcoming Events</h2>
-                        <ul>
-                            <li>
-                                <strong>11 Sep, 2025</strong> – <a href="https://transform.no/transform-beats-yard-trondheim-danceshow-med-15-dansegrupper-og-after-party-pa-isak/?lang=en" target="_blank">Transform, ISAK</a> : Transform & Beats Yard, Trondheim
-                            </li>
-                            <li>
-                                <strong>12 Sep, 2025</strong> – <a>Bror Night</a> : Bror Solsiden, Trondheim
-                            </li>
-                            <li>
-                                <strong>13 Sep, 2025</strong> – <a>Bror Night</a> : Bror Solsiden, Trondheim
-                            </li>
-                            <li>
-                                <strong>18 Sep, 2025</strong> – <a href="https://www.facebook.com/events/3037706949742735/" target="_blank">Latinology</a> : Latinology, Trondheim
-                            </li>
-                            <li>
-                                <strong>19 Sep, 2025</strong> – <a href="https://www.facebook.com/events/2783312968533694" target="_blank">Dusk Melodies</a> : 2Glass, Trondheim
-                            </li>
-                        </ul>
-                    </div>
+                <div id="header-placeholder"></div>
+                <script>
+                    fetch('/components/header.html')
+                        .then(response => response.text())
+                        .then(data => {
+                            document.getElementById('header-placeholder').innerHTML = data;
+                        })
+                        .catch(error => console.error('Error loading header:', error));
+                </script>
 
-                    <div class="grid-container">
-                        <a href="/sub_concepts.html" class="grid-item">
-                            <img src="./media/Intro/concepts.jpg" alt="concepts">
-                            <h3>Concepts</h3>
-                        </a>
-                        <a href="/sub_djservices.html#services_check" class="grid-item">
-                            <img src="./media/Intro/service.jpg" alt="services">
-                            <h3>Services</h3>
-                        </a>
-                        <a href="/sub_rentals.html#studio_check" class="grid-item">
-                            <img src="./media/Intro/studio.jpg" alt="studio">
-                            <h3>Studio</h3>
-                        </a>
-                        <a href="/sub_rentals.html#rental_check" class="grid-item">
-                            <img src="./media/Intro/rentals.jpg" alt="rentals">
-                            <h3>Rentals</h3>
-                        </a>
-                        <a href="/sub_djservices.html#courses_check" class="grid-item">
-                            <img src="./media/Intro/classes.jpg" alt="courses">
-                            <h3>Courses</h3>
-                        </a>
-                        <a href="/sub_streams.html" class="grid-item">
-                            <img src="./media/Intro/streaming.jpg" alt="streaming">
-                            <h3>Streaming</h3>
-                        </a>
-                    </div>
+                <div class="upcoming-events" style="margin-bottom: 60px;">
+                    <h2>Upcoming Events</h2>
+                    <ul id="events-list"></ul>
+                </div>
+
+                <div class="grid-container">
+                    <a href="/sub_concepts.html" class="grid-item">
+                        <img src="./media/Intro/concepts.jpg" alt="concepts">
+                        <h3>Concepts</h3>
+                    </a>
+                    <a href="/sub_djservices.html#services_check" class="grid-item">
+                        <img src="./media/Intro/service.jpg" alt="services">
+                        <h3>Services</h3>
+                    </a>
+                    <a href="/sub_rentals.html#studio_check" class="grid-item">
+                        <img src="./media/Intro/studio.jpg" alt="studio">
+                        <h3>Studio</h3>
+                    </a>
+                    <a href="/sub_rentals.html#rental_check" class="grid-item">
+                        <img src="./media/Intro/rentals.jpg" alt="rentals">
+                        <h3>Rentals</h3>
+                    </a>
+                    <a href="/sub_djservices.html#courses_check" class="grid-item">
+                        <img src="./media/Intro/classes.jpg" alt="courses">
+                        <h3>Courses</h3>
+                    </a>
+                    <a href="/sub_streams.html" class="grid-item">
+                        <img src="./media/Intro/streaming.jpg" alt="streaming">
+                        <h3>Streaming</h3>
+                    </a>
+                </div>
 
             </div>
         </div>
     </div>
 
+    <script>
 
-</body>
+        async function loadEvents() {
+            try {
+                const response = await fetch('events.json'); 
+                const events = await response.json();
 
-</html>
+                const list = document.getElementById('events-list');
+                list.innerHTML = ""; // clear placeholder
+
+                events.forEach(event => {
+                    // Format date (DD Mon, YYYY)
+                    const date = new Date(event.date);
+                    const options = { day: '2-digit', month: 'short', year: 'numeric' };
+                    const formattedDate = date.toLocaleDateString('en-GB', options);
+
+                    // Create <li>
+                    const li = document.createElement('li');
+
+                    // If link exists, wrap in <a>
+                    const eventLink = event.link
+                        ? `<a href="${event.link}" target="_blank">${event.name}</a>`
+                        : `<a>${event.name}</a>`;
+
+                    li.innerHTML = `<strong>${formattedDate}</strong> – ${eventLink} : ${event.location}`;
+                    list.appendChild(li);
+                });
+            } catch (error) {
+                console.error("Failed to load events:", error);
+            }
+        }
+
+        loadEvents();
+    </script>
+
+</body >
+
+</html >
