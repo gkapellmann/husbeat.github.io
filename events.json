@@ -1,20 +1,14 @@
 [
   {
-    "date": "2025-11-14",
-    "name": "Husbeat Live",
-    "link": "",
-    "location": "Bror Solsiden, Trondheim"
-  },
-  {
-    "date": "2025-11-21",
-    "name": "Dusk Melodies",
-    "link": "https://www.facebook.com/events/1964259144135755",
-    "location": "2Glass, Trondheim"
-  },
-  {
-    "date": "2025-12-05",
-    "name": "Twilight Moods",
+    "date": "2026-03-21",
+    "name": "Olavstorget Lounge (20:00 - 23:00)",
     "link": "",
     "location": "Carpe Diem, Trondheim"
+  },
+  {
+    "date": "2026-04-01",
+    "name": "Husbeat Live (23:00 - 03:00)",
+    "link": "",
+    "location": "Bror Solsiden, Trondheim"
   }
 ]
