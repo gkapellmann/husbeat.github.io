@@ -30,34 +30,6 @@
     }
 
 /******************************************************************************************/
-/* SoMe Links */
-.links {
-    display: flex; /* Make icons appear in a row */
-    gap: 55px; /* Spacing between icons */
-}
-
-    .links a {
-        margin: 0; /* Remove vertical spacing that caused stacking */
-        text-align: left;
-        text-decoration: none;
-        color: inherit;
-    }
-
-        .links a:focus {
-            color: #69bee0;
-        }
-
-        .links a:hover {
-            color: #498299;
-            text-decoration: none;
-        }
-
-    .links i {
-        font-size: 60px; /* Adjust the size of the icons (larger size) */
-    }
-
-
-/******************************************************************************************/
 a,
 a:focus,
 a:hover {
@@ -235,17 +207,6 @@ ul li a {
             color: #007bff; /* Hover effect */
         }
 
-/* Styling for the top index */
-.index_rent {
-    display: flex;
-    justify-content: space-around;
-    list-style: none;
-    padding: 10px;
-    background: #222;
-    color: white;
-}
-
-
 /* Styling for category blocks */
 .category_rent {
     text-align: center;
@@ -283,24 +244,6 @@ ul li a {
 #services_check p {
     margin-bottom: 1em;
 }
-
-
-/* Styling for links */
-.index_rent a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    display: block;
-    padding: 5px;
-    max-width: 100%;
-    overflow: hidden;
-}
-
-    .index_rent a:hover {
-        text-decoration: underline;
-    }
-
-
 
 
 .navbar {
@@ -370,13 +313,7 @@ ul li a {
 }
 
 
-.concepts-image {
-    max-width: 100%; /* Ensures it stays responsive */
-    width: 80%; /* Adjusts the size, increase/decrease as needed */
-    display: block;
-    margin: 0 auto; /* Centers horizontally */
-    height: auto;
-}
+
 
 
 @media (min-width: 768px) {

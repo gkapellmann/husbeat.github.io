@@ -1,0 +1,69 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+/* ****** Index Events CSS ****** */
+#event-list {
+    background-color: #000; /* Ensuring the container is black */
+    padding: 20px;
+    color: #fff;
+}
+
+.event-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #333; /* Subtle dark divider */
+    list-style: none;
+}
+
+/* Date and Time styling */
+.event-date-box {
+    min-width: 140px;
+    display: flex;
+    flex-direction: column;
+}
+
+.date-text {
+    color: #fff; /* Bright white for the date */
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+}
+
+.time-text {
+    color: #00ffcc; /* Neon teal for the time - looks great on black */
+    font-size: 0.85em;
+    margin-top: 4px;
+}
+
+/* Title and Location */
+.event-details {
+    margin-left: 20px;
+}
+
+/* Active Link styling */
+.event-link {
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 2px solid #00ffcc; /* Visual cue it's a link */
+    transition: color 0.3s ease;
+    font-weight: 600;
+}
+
+    .event-link:hover {
+        color: #00ffcc;
+    }
+
+/* Static Name (when link is empty) */
+.event-name-static {
+    color: #aaa; /* Slightly dimmed so it doesn't look like a button */
+    font-weight: 800;
+    cursor: default;
+}
+
+.event-location {
+    color: white;
+    font-size: 1.1em;
+    margin-left: 10px;
+}

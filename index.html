@@ -12,6 +12,7 @@
 
     <!-- Custom styles for this template -->
     <link href="./static/style.css" rel="stylesheet">
+    <link href="./static/index.css" rel="stylesheet">
 
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -92,15 +93,30 @@
                     const options = { day: '2-digit', month: 'short', year: 'numeric' };
                     const formattedDate = date.toLocaleDateString('en-GB', options);
 
+                    // Check if it's an overnight event (e.g., 23:00 to 03:00)
+                    const isOvernight = event.endtime < event.starttime;
+                    const timeDisplay = `${event.starttime}–${event.endtime}${isOvernight ? ' (+1)' : ''}`;
+
                     // Create <li>
                     const li = document.createElement('li');
+                    li.className = 'event-item';
 
-                    // If link exists, wrap in <a>
-                    const eventLink = event.link
-                        ? `<a href="${event.link}" target="_blank">${event.name}</a>`
-                        : `<a>${event.name}</a>`;
+                    // Logic: Only use <a> if event.link is not an empty string
+                    const eventNameHtml = (event.link && event.link.trim() !== "")
+                        ? `<a href="${event.link}" target="_blank" class="event-link">${event.name}</a>`
+                        : `<span class="event-name-static">${event.name}</span>`;
 
-                    li.innerHTML = `<strong>${formattedDate}</strong> – ${eventLink} : ${event.location}`;
+                    li.innerHTML = `
+                        <div class="event-date-box">
+                            <span class="date-text">${formattedDate}</span>
+                            <span class="time-text">${timeDisplay}</span>
+                        </div>
+                        <div class="event-details">
+                            <span class="event-title">${eventNameHtml}</span>
+                            <span class="event-location">@ ${event.location}</span>
+                        </div>
+                    `;
+
                     list.appendChild(li);
                 });
             } catch (error) {

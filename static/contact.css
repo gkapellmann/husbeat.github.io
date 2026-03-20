@@ -1,0 +1,29 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+/******************************************************************************************/
+/* SoMe Links */
+.links {
+    display: flex; /* Make icons appear in a row */
+    gap: 55px; /* Spacing between icons */
+}
+
+    .links a {
+        margin: 0; /* Remove vertical spacing that caused stacking */
+        text-align: left;
+        text-decoration: none;
+        color: inherit;
+    }
+
+        .links a:focus {
+            color: #69bee0;
+        }
+
+        .links a:hover {
+            color: #498299;
+            text-decoration: none;
+        }
+
+    .links i {
+        font-size: 60px; /* Adjust the size of the icons (larger size) */
+    }
