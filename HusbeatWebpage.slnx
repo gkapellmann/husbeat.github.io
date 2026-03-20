@@ -1,0 +1,25 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Debug" />
+  </Configurations>
+  <Project Path="." Type="Website" DisplayName="husbeat.github.io" Id="fc3f08f3-9cc3-8c23-6cc2-08e70efd6dfe">
+    <Properties Name="WebsiteProperties">
+      <Property Name="Debug.AspNetCompiler.Debug" Value="&quot;True&quot;" />
+      <Property Name="Debug.AspNetCompiler.FixedNames" Value="&quot;false&quot;" />
+      <Property Name="Debug.AspNetCompiler.ForceOverwrite" Value="&quot;true&quot;" />
+      <Property Name="Debug.AspNetCompiler.PhysicalPath" Value="&quot;..\husbeat.github.io\&quot;" />
+      <Property Name="Debug.AspNetCompiler.TargetPath" Value="&quot;PrecompiledWeb\localhost_60417\&quot;" />
+      <Property Name="Debug.AspNetCompiler.Updateable" Value="&quot;true&quot;" />
+      <Property Name="Debug.AspNetCompiler.VirtualPath" Value="&quot;/localhost_60417&quot;" />
+      <Property Name="Release.AspNetCompiler.Debug" Value="&quot;False&quot;" />
+      <Property Name="Release.AspNetCompiler.FixedNames" Value="&quot;false&quot;" />
+      <Property Name="Release.AspNetCompiler.ForceOverwrite" Value="&quot;true&quot;" />
+      <Property Name="Release.AspNetCompiler.PhysicalPath" Value="&quot;..\husbeat.github.io\&quot;" />
+      <Property Name="Release.AspNetCompiler.TargetPath" Value="&quot;PrecompiledWeb\localhost_60417\&quot;" />
+      <Property Name="Release.AspNetCompiler.Updateable" Value="&quot;true&quot;" />
+      <Property Name="Release.AspNetCompiler.VirtualPath" Value="&quot;/localhost_60417&quot;" />
+      <Property Name="TargetFrameworkMoniker" Value="&quot;.NETFramework,Version%3Dv2.0&quot;" />
+      <Property Name="VWDPort" Value="&quot;60417&quot;" />
+    </Properties>
+  </Project>
+</Solution>
