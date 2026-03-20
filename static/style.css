@@ -1,25 +1,93 @@
-/*
- * Globals
+/* * 1. GLOBALS & FONTS 
  */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+* {
+    box-sizing: border-box;
+}
 
-/******************************************************************************************/
-/* Index Buttons-Images */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    max-width: 700px;
+html, body {
+    height: 100%;
+    background-color: #000000;
+    font-family: 'Nunito', sans-serif;
+    color: #d3d3d3;
+    margin: 0;
+    font-size: 110%;
+    line-height: 1.6;
+}
+
+/* * 2. NAVIGATION & HEADER
+ */
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 20px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
+    .menu-header img {
+        height: 70px;
+    }
+
+.menu-menu {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+    .menu-menu a {
+        text-decoration: none;
+        color: #f8f9fa;
+        font-weight: 800;
+        font-size: 28px;
+        transition: color 0.3s ease;
+    }
+
+        .menu-menu a:hover {
+            color: #69bee0;
+        }
+
+/* * 3. MAIN LAYOUT CONTAINERS 
+ */
+.cover-container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 80px 20px 40px;
+}
+
+h1 {
+    color: #add3fa;
+    font-weight: 800;
+    margin-top: 0;
+}
+
+a {
+    color: #69bee0;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+    a:hover {
+        color: #498299;
+    }
+
+/* * 4. GRID & CONTENT COMPONENTS (Index/Portfolio)
+ */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
 .grid-item {
-    background-color: #454545;
+    background-color: #1a1a1a;
     padding: 15px;
     text-align: center;
     border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
     .grid-item img {
@@ -29,361 +97,46 @@
         margin-bottom: 10px;
     }
 
-/******************************************************************************************/
-a,
-a:focus,
-a:hover {
-    color: #69bee0;
+.stylish-image {
+    border: 5px solid #001BFF;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
-    a:hover {
-        color: #498299;
-        text-decoration: none;
+    .stylish-image:hover {
+        transform: scale(1.03);
     }
 
+/* * 5. UTILITIES
+ */
 .hidden {
     display: none;
 }
 
-/*
- * Base structure
+/* * 6. RESPONSIVE DESIGN
  */
-
-html,
-body {
-    height: 100%;
-    background: #000000;
-    font-family: 'Nunito', sans-serif;
-}
-
-body {
-    color: #d3d3d3;
-    text-align: left;
-    font-size: 110%;
-}
-
-/******************************************************************************************/
-/* Extra markup and styles for table-esque vertical and horizontal centering */
-.site-wrapper {
-    display: table;
-    width: 100%;
-    height: 100%; /* For at least Firefox */
-    min-height: 100%;
-}
-
-.site-wrapper-inner {
-    display: table-cell;
-    vertical-align: top;
-}
-
-.cover-container {
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 2em;
-    padding-top: 120px; /* Adjust based on your header's height */
-}
-
-/* Padding for spacing */
-.inner {
-    padding: 10px;
-}
-
-    .inner small {
-        color: #D1F6FF;
+@media (max-width: 768px) {
+    .menu-header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
     }
 
-/*
- * Cover
- */
-
-.cover {
-    padding: 0 20px;
-}
-
-/*
- * Add some style, sven says.
- */
-
-h1 {
-    color: #add3fa; /* 3b7cbd */
-}
-
-code {
-    font-size: 100%;
-    color: #c35b7d;
-}
-
-
-/*
- * Affix and center
- */
-
-
-/* Ensures the modal image fits well */
-.modal-body img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Background image only on the top */
-.header-background {
-    background: url('../media/Background.jpg') no-repeat center top;
-    background-size: cover;
-    width: 100%;
-    height: 500px; /* Adjust height as needed */
-    display: flex;
-    align-items: flex-start; /* Push logo to the bottom */
-    justify-content: center;
-    padding-top: 40px; /* Adds spacing from the top */
-}
-
-/* Center the logo */
-.img-me {
-    display: block;
-    margin: 0 auto; /* Centers horizontally */
-    max-width: 55%; /* Ensures responsiveness */
-    height: auto;
-}
-
-ul li a {
-    font-size: 24px; /* Adjust to your desired size */
-    font-weight: bold; /* Makes the text bold */
-    text-decoration: none; /* Optional: remove the underline */
-}
-
-    ul li a:hover {
-        color: #007bff; /* Optional: change text color on hover */
+    .menu-menu {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
-.stylish-image {
-    border: 5px solid #001BFF; /* Blue border */
-    border-radius: 20px; /* Rounded corners */
-    height: auto; /* Maintain aspect ratio */
-    transition: transform 0.3s; /* Smooth scale effect */
-}
-
-    .stylish-image:hover {
-        transform: scale(1.05); /* Scale up on hover */
-    }
-
-.stylish-image-click {
-    cursor: pointer;
-}
-
-/******************************************************************************************/
-/* Header styles */
-.menu-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 20px;
-    background-color: transparent; 
-    margin: 0 auto;
-    max-width: 1000px;
-}
-
-    .menu-header img {
-        height: 70px; /* Adjust the height of the image */
-    }
-
-.menu-menu {
-    list-style-type: none;
-    display: flex;
-    gap: 50px;
-}
-
-    .menu-menu li {
-        margin: 0;
-    }
-
-    .menu-menu a {
-        text-decoration: none;
-        color: #f8f9fa;
-        font-weight: bold;
-        font-size: 32px; /* Adjust the size as needed */
-    }
-
-        .menu-menu a:hover {
-            color: #007bff; /* Hover effect */
+        .menu-menu a {
+            font-size: 20px;
         }
 
-/* Styling for category blocks */
-.category_rent {
-    text-align: center;
-    border-right: 1px solid grey; /* Add a line between categories */
-    padding-right: 20px; /* Adds some space after the category before the line */
-}
-
-    .category_rent:last-child {
-        border-right: none; /* Remove the line for the last category */
-    }
-
-    .category_rent ul {
-        padding: 0;
-        margin: 10px 0 0 0; /* Add space between category and sub-items */
-    }
-
-    .category_rent li {
-        text-align: left; /* Align the sub-item text to the left */
-    }
-
-
-/* Styling for DJ Services items */
-.services-wrapper {
-    overflow: hidden;   /* Clear float */
-}
-
-.services-img {
-    float: right;
-    width: 400px;       /* Adjust as needed */
-    margin-left: 20px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-}
-
-#services_check p {
-    margin-bottom: 1em;
-}
-
-
-.navbar {
-    min-height: 120px; /* Adjust to your preferred height */
-    padding: 15px 20px; /* Maintain spacing */
-}
-
-    .navbar a {
-        font-size: 28px;
-        font-weight: bold; /* Optional, makes text more readable */
-        padding: 10px 15px; /* Adds spacing inside the links */
-        margin: 0 10px; /* Adds spacing between menu items */
-    }
-
-.navbar-brand img {
-    height: 50px; /* Ensures logo stays same size */
-}
-
-@media (max-width: 991px) {
-    .navbar {
-        padding: 10px; /* Slightly smaller padding on mobile */
-    }
-
-    .navbar-brand img {
-        height: 40px; /* Smaller logo for mobile */
-    }
-}
-
-
-
-
-
-
-
-.bundle-container {
-    display: flex;
-    flex-wrap: wrap; /* Ensures responsiveness */
-    gap: 20px; /* Adds space between images and text */
-    align-items: center;
-}
-
-.bundle-images {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap; /* Allows wrapping on small screens */
-}
-
-    .bundle-images img {
-        width: 120px; /* Adjust size */
-        height: auto;
-        border-radius: 8px; /* Optional: rounded corners */
-    }
-
-.bundle-text {
-    flex: 1; /* Makes text take up the remaining space */
-}
-
-@media (max-width: 768px) {
-    .bundle-container {
-        flex-direction: column; /* Stacks images and text */
-        text-align: center;
-    }
-
-    .bundle-images {
-        justify-content: center; /* Centers images */
-    }
-}
-
-
-
-
-
-@media (min-width: 768px) {
-    /* Start the vertical centering */
-    .site-wrapper-inner {
-        vertical-align: middle;
-    }
-    /* Handle the widths */
     .cover-container {
-        width: 100%; /* Must be percentage or pixels for horizontal alignment */
-    }
-}
-
-@media (min-width: 992px) {
-    .cover-container {
-        width: 920px;
-    }
-}
-
-@media(max-width: 768px) {
-    h1, p {
-        text-align: center;
+        padding-top: 40px;
     }
 
-    .links {
-        margin-top: 2em;
-        font-size: 1.5em;
-        text-align: center;
-    }
-}
-
-
-/* Portfolio page */
-body.subpage h1 {
-    margin-top: 10rem;
-}
-
-body.subpage h2 {
-    margin-top: 5rem;
-    color: #aec8ff;
-    font-size: 1.6rem;
-}
-
-body.subpage dl {
-    margin-top: 3rem;
-}
-
-    body.subpage dl p {
-        margin-bottom: 1rem;
-    }
-
-body.subpage dd {
-    margin-bottom: 2rem;
-}
-
-body.subpage dt {
-    font-family: 'Roboto Mono', monospace;
-}
-
-body.subpage a.calltoaction, body.subpage a.calltoaction:focus {
-    color: #4ad1a4;
-    display: block;
-}
-
-    body.subpage a.calltoaction:hover {
-        color: #30886b;
-        text-decoration: none;
-    }
-
-@media (max-width: 768px) {
     h1, p {
         text-align: left;
     }

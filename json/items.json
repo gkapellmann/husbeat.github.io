@@ -1,0 +1,167 @@
+[
+  {
+    "category": "DJEq",
+    "id": "dj1",
+    "name": "DDJ-XP2",
+    "brand": "Pioneer DJ",
+    "description": "Sub controller for rekordbox & Serato DJ Pro.",
+    "price": "150.00 NOK",
+    "images": [ "/media/Equipment/DJ_Devices/DDJ-XP2.jpg" ],
+    "type": "item",
+    "includes": [ "DDJ-XP2", "USB Cable" ]
+  },
+  {
+    "category": "DJEq",
+    "id": "dj3",
+    "name": "Kontrol-F1",
+    "type": "item",
+    "brand": "NI DJ Remix Controller",
+    "description": "Dedicated control for Stems and Remix Decks that delivers hands-on, live remixing opportunities.",
+    "price": "250.00 NOK",
+    "images": [ "/media/Equipment/DJ_Devices/Kontrol-F1.jpg" ],
+    "includes": [ "Kontrol-F1", "USB Cable" ]
+  },
+  {
+    "category": "DJEq",
+    "id": "dj4",
+    "name": "Kontrol-Z1",
+    "type": "item",
+    "brand": "NI Compact DJ Controller",
+    "description": "A very compact, two channel no-frills mixer designed especially for Native Instruments’ range of DJ software.",
+    "price": "250.00 NOK",
+    "images": [ "/media/Equipment/DJ_Devices/Kontrol-Z1.jpg" ],
+    "includes": [ "Kontrol-Z1", "USB Cable" ]
+  },
+  {
+    "category": "DJEq",
+    "id": "dj5",
+    "name": "Kontrol-X1",
+    "type": "item",
+    "brand": "NI Compact DJ Controller",
+    "description": "This controller provides an instant command of your decks and effect parameters.",
+    "price": "250.00 NOK",
+    "images": [ "/media/Equipment/DJ_Devices/Kontrol-X1.jpg" ],
+    "includes": [ "Kontrol-X1", "USB Cable" ]
+  },
+  {
+    "category": "Audio",
+    "id": "audio3",
+    "name": "Soundcraft Notepad-8FX",
+    "type": "item",
+    "brand": "Small-format Analog Mixing Console with USB I/O and Lexicon Effects",
+    "description": "Get legendary Soundcraft quality. Easily record, edit and playback from your Mac and PC with an integrated USB audio interface—simply plug-and-play. Getting a great mix is easy with a familiar channel strip layout that includes EQ, aux send, master fader level and rotary headphone volume control.",
+    "price": "150.00 NOK",
+    "images": [ "/media/Equipment/Audio_Devices/Soundcraft-8fx.jpg" ],
+    "includes": [
+      "Soundcraft-8fx Mixer",
+      "Power Cord"
+    ]
+  },
+  {
+    "category": "DJEq",
+    "id": "dj2",
+    "name": "S4-MK2",
+    "type": "item",
+    "brand": "Native Instruments Traktor Kontrol S4 MK2 Controller",
+    "description": "A portable, 4-channel all-in-one DJ controller perfect for traveling DJs. Offering a user-friendly interface and plug-and-play operation.",
+    "price": "500.00 NOK",
+    "images": [ "/media/Equipment/DJ_Devices/S4-MK2.jpg" ],
+    "includes": [ "S4 MK2 DJ Controller", "USB Cable", "Power Cord" ]
+  },
+  {
+    "category": "DJEq",
+    "id": "dj6",
+    "name": "XDJ-700",
+    "type": "item",
+    "brand": "Compact DJ multi player",
+    "description": "Comes with a large touchscreen and familiar club layout. Inherits features from the XDJ-1000. Compact size and removable stand offer great setup possibilities.",
+    "price": "600.00 NOK",
+    "images": [ "/media/Equipment/DJ_Devices/XDJ-700.jpg" ],
+    "includes": [ "XDJ-700", "Power Cord" ]
+  },
+  {
+    "category": "DJEq",
+    "id": "dj8",
+    "name": "DJM-450",
+    "type": "item",
+    "brand": "2-channel DJ mixer with Beat FX",
+    "description": "Ideal partner for multiplayers. Features Magvel fader, smooth EQ, Sound Colour FX, and Beat FX. 64-bit digital signal processor for warm, high-quality audio.",
+    "price": "600.00 NOK",
+    "images": [ "/media/Equipment/DJ_Devices/DJM-450.jpg" ],
+    "includes": [ "DJM-450", "Power Cord" ]
+  },
+  {
+    "category": "Audio",
+    "id": "audio1",
+    "name": "PH12-BT",
+    "type": "item",
+    "brand": "BST PH12-BT Active PA Speaker 12\" Bluetooth 500W",
+    "description": "Versatile speaker box fitted with top and side-mounted handles for ease of transport. Works with Bluetooth, SD Cards or USBs, or connected through RCA or XLR cables.",
+    "price": "400.00 NOK",
+    "images": [ "/media/Equipment/Audio_Devices/PH12-BT.jpg" ],
+    "includes": [
+      "PH12-BT Speaker",
+      "Support Tripod",
+      "Power Cord"
+    ]
+  },
+  {
+    "category": "Studio",
+    "id": "studio1",
+    "name": "Kontrol-A25",
+    "type": "item",
+    "brand": "Native Instruments Komplete streamlined keyboard controller",
+    "description": "Intuitive pre-programmed control for hundreds of KOMPLETE and NKS plug-ins, plus full VST support. Full integration with MASCHINE, Logic Pro X, GarageBand and Ableton Live, Cubase and Nuendo.",
+    "price": "300.00 NOK",
+    "images": [ "/media/Equipment/Studio_Devices/Kontrol-A25.jpg" ],
+    "includes": [
+      "Kontrol-A25 Keyboard",
+      "USB Cable"
+    ]
+  },
+  {
+    "category": "Bundles",
+    "id": "bundle1",
+    "name": "Portable Controller Bundle",
+    "brand": "Native Instruments",
+    "description": "A compact and versatile DJ setup designed for ultimate flexibility. Perfect for on-the-go performance control.",
+    "price": "600.00 NOK",
+    "images": [
+      "/media/Equipment/DJ_Devices/Kontrol-F1.jpg",
+      "/media/Equipment/DJ_Devices/Kontrol-Z1.jpg",
+      "/media/Equipment/DJ_Devices/Kontrol-X1.jpg"
+    ],
+    "type": "bundle",
+    "includes": [ "Kontrol-F1", "Kontrol-Z1", "Kontrol-X1" ]
+  },
+  {
+    "category": "Bundles",
+    "id": "bundle2",
+    "name": "Basic Performer Bundle",
+    "brand": "Pioneer DJ",
+    "description": "Professional performance in a smaller package. Offering intuitive controls and high-quality sound.",
+    "price": "1400.00 NOK",
+    "images": [
+      "/media/Equipment/DJ_Devices/XDJ-700.jpg",
+      "/media/Equipment/DJ_Devices/DJM-450.jpg",
+      "/media/Equipment/DJ_Devices/XDJ-700.jpg"
+    ],
+    "type": "bundle",
+    "includes": [ "2x XDJ-700", "1x DJM-450" ]
+  },
+  {
+    "category": "Bundles",
+    "id": "bundle3",
+    "name": "Basic Audio Bundle",
+    "brand": "PowerDynamics & Soundcraft",
+    "description": "Reliable sound experience for small events. Quick and hassle-free setup.",
+    "price": "700.00 NOK",
+    "images": [
+      "/media/Equipment/Audio_Devices/PH12-BT.jpg",
+      "/media/Equipment/Audio_Devices/PH12-BT.jpg",
+      "/media/Equipment/Audio_Devices/Soundcraft-8fx.jpg"
+    ],
+    "type": "bundle",
+    "includes": [ "2x PH12-BT", "1x Soundcraft-8fx", "2x 10m XLR Cables" ]
+  }
+]

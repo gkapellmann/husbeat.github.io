@@ -1,491 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Husbeat DJ and Audio Equipment Rental in Trondheim">
+    <title>Husbeat | Rentals</title>
 
-    <!-- Bootstrap core CSS -->
     <link href="./static/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
     <link href="./static/style.css" rel="stylesheet">
     <link href="./static/rentals.css" rel="stylesheet">
 
-    <!-- fontawesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="shortcut icon" href="./media/HusbeatHead.png">
-
-    <title> Husbeat | Rentals </title>
-
 </head>
 
 <body class="subpage">
 
-    <!-- Bootstrap Modal -->
-    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body text-center">
-                    <img id="modalImage" src="" class="img-fluid" />
+    <div id="header-placeholder"></div>
+
+    <div class="site-wrapper">
+        <div class="site-wrapper-inner">
+            <div class="cover-container px-3">
+
+                <section class="text-center mt-5 mb-5">
+                    <h1 class="cover-heading">Equipment Rental</h1>
+                    <p class="lead">Professional gear for your next event in Trondheim.</p>
+                </section>
+
+                <nav class="rental-nav mb-5">
+                    <ul id="dynamic-index" class="index_rent d-flex flex-wrap justify-content-center gap-5 list-unstyled">
+                    </ul>
+                </nav>
+
+                <hr class="border-secondary opacity-25">
+
+                <div id="rental-content">
+                    <div class="text-center py-5">
+                        <div class="spinner-border text-info" role="status">
+                            <span class="visually-hidden">Loading gear catalog...</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-dark border-secondary shadow-lg">
+                <div class="modal-body text-center p-0">
+                    <img id="modalImage" src="" class="img-fluid rounded" alt="Zoomed gear view" />
                 </div>
             </div>
         </div>
     </div>
 
-    <!--Bootstrap JS (Ensure Bootstrap JavaScript is loaded)-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            document.querySelectorAll(".stylish-image").forEach(img => {
-                img.addEventListener("click", function () {
-                    document.getElementById("modalImage").src = this.src;
+            // 1. Load the Global Header
+            fetch('/components/header.html')
+                .then(res => res.text())
+                .then(data => document.getElementById('header-placeholder').innerHTML = data)
+                .catch(err => console.error("Header load error:", err));
+
+            // 2. Define your desired Category Order and Titles
+            const sectionOrder = [
+                { id: "DJEq", title: "DJ" },
+                { id: "Studio", title: "Studio" },
+                { id: "Audio", title: "Audio" },
+                { id: "Bundles", title: "Bundles" }
+            ];
+
+            // 3. Fetch Equipment Data
+            fetch('/json/items.json')
+                .then(res => res.json())
+                .then(data => {
+                    const indexContainer = document.getElementById('dynamic-index');
+                    const mainContainer = document.getElementById('rental-content');
+
+                    indexContainer.innerHTML = '';
+                    mainContainer.innerHTML = '';
+
+                    sectionOrder.forEach(section => {
+                        const sectionItems = data.filter(item => item.category === section.id);
+
+                        // SKIP section if no items exist in JSON
+                        if (sectionItems.length === 0) return;
+
+                        // --- A. BUILD THE TOP INDEX ---
+                        const indexLi = document.createElement('li');
+                        indexLi.className = "category_rent";
+
+                        const subLinks = sectionItems.map(item =>
+                            `<li><a href="#${item.id}" class="text-decoration-none">${item.name}</a></li>`
+                        ).join('');
+
+                        indexLi.innerHTML = `
+                                    <a href="#${section.id}" class="fw-bold text-uppercase d-block mb-2">${section.title}</a>
+                                    <ul class="list-unstyled small text-secondary">${subLinks}</ul>
+                                `;
+                        indexContainer.appendChild(indexLi);
+
+                        // --- B. BUILD THE SECTION CONTENT ---
+                        const header = document.createElement('h2');
+                        header.id = section.id;
+                        header.className = "text-start mt-5 mb-4 border-bottom border-secondary pb-2";
+                        header.innerText = section.id === "Bundles" ? "Value Bundles" : `${section.title} Equipment`;
+                        mainContainer.appendChild(header);
+
+                        sectionItems.forEach(item => {
+                            // Generate the "Includes" list HTML if it exists
+                            const includesHTML = item.includes && item.includes.length > 0
+                                ? `<ul class="small text-secondary mt-2">
+                                        ${item.includes.map(inc => `<li>${inc}</li>`).join('')}
+                                       </ul>`
+                                : '';
+
+                            let html = '';
+                            if (item.type === 'bundle') {
+                                html = `
+                                    <div id="${item.id}" class="bundle-row-special align-items-center mb-5 border-bottom border-secondary pb-4">
+                                        <div class="col-md-5 col-sm-12">
+                                            <div class="bundle-gallery-grid">
+                                                ${item.images.map(img => `
+                                                    <div class="bundle-gallery-item">
+                                                        <img src="${img}" class="img-fluid stylish-image rounded border border-secondary"
+                                                             data-bs-toggle="modal" data-bs-target="#imageModal">
+                                                    </div>
+                                                `).join('')}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7 col-sm-12 text-start px-md-5 mt-4 mt-md-0">
+                                            <span class="badge bg-info text-dark mb-2 px-3 py-1 text-uppercase fw-bold">Value Bundle</span>
+                                            <h3 class="mb-1 text-white">${item.name}</h3>
+                                            <p class="text-secondary small mb-2">${item.brand}</p>
+                                            <p class="text-light mb-0">${item.description}</p>
+
+                                            ${includesHTML} <p class="text-info fw-bold mt-3 h4">${item.price} / Day</p>
+                                        </div>
+                                    </div>`;
+                            } else {
+                                html = `
+                                    <dl id="${item.id}" class="row align-items-center mb-5 border-bottom border-secondary pb-4">
+                                        <dt class="col-md-3">
+                                            <img src="${item.images[0]}" class="img-fluid stylish-image rounded shadow-sm border border-secondary"
+                                                 data-bs-toggle="modal" data-bs-target="#imageModal">
+                                        </dt>
+                                        <dd class="col-md-9 text-start">
+                                            <h3 class="mb-1">${item.name}</h3>
+                                            <p class="text-secondary small mb-1">${item.brand}</p>
+                                            <p class="mb-0">${item.description}</p>
+
+                                            ${includesHTML} <p class="text-info fw-bold mt-3 h5">${item.price} / 24 Hrs.</p>
+                                        </dd>
+                                    </dl>`;
+                            }
+                            mainContainer.insertAdjacentHTML('beforeend', html);
+                        });
+
+                    });
+                })
+                .catch(err => {
+                    console.error("Data Load Error:", err);
+                    document.getElementById('rental-content').innerHTML = `<p class="text-danger">Error loading equipment. Check console.</p>`;
                 });
+
+            // 4. Global Image Modal Logic (Works for dynamic elements)
+            document.addEventListener("click", function (e) {
+                if (e.target.classList.contains("stylish-image")) {
+                    document.getElementById("modalImage").src = e.target.src;
+                }
             });
         });
     </script>
-
-    <div id="header-placeholder"></div>
-    <script>
-        fetch('/components/header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading header:', error));
-    </script>
-
-    <!-- Body content goes here -->
-    <div class="site-wrapper">
-        <div class="site-wrapper-inner">
-            <div class="cover-container">
-                <div class="inner cover">
-
-                    <div class="row">
-                        <div class="col">
-
-                            <section class="studio-rental">
-
-                                <div class="cover-heading">
-                                    <h1>Studio Time</h1>
-                                    <p class="lead-text">A semi-professional, relaxed space in Trondheim for DJs, producers, and creators to practice, stream, and teach.</p>
-                                </div>
-
-                                <div class="pricing-card">
-                                    <h3>Rate</h3>
-                                    <div class="price-main">400 NOK <span class="small">/ 2-hour slot</span></div>
-                                    <p class="price-extra">+ 160 NOK per extra hour</p>
-                                    <a href="mailto:husbeat@gmail.com" class="booking-btn">Book via Email</a>
-                                </div>
-
-                                <div class="studio-usage">
-                                    <span class="tag">Production</span>
-                                    <span class="tag">Streaming</span>
-                                    <span class="tag">Practice</span>
-                                    <span class="tag">Teaching</span>
-                                </div>
-
-                                <!--<div class="studio-gallery">
-                                    <div class="gallery-item placeholder"><span>Studio View 1</span></div>
-                                    <div class="gallery-item placeholder"><span>Equipment Detail</span></div>
-                                    <div class="gallery-item placeholder"><span>Lounge Area</span></div>
-                                </div>-->
-
-                                <!--<div class="specs-grid">
-                                    <div class="spec-column">
-                                        <h3>Hardware</h3>
-                                        <ul class="spec-list">
-                                            <li><strong>Mixer:</strong> Pioneer DJM-750 MK2 (4-Channel)</li>
-                                            <li><strong>Players:</strong> 4x XDJ-1000 MK2</li>
-                                            <li><strong>Lights:</strong> Pro Streaming Cameras & Studio Lighting</li>
-                                            <li><strong>Extras:</strong> Chill lounge for guests/collaborators</li>
-                                        </ul>
-                                    </div>
-
-                                    <div class="spec-column">
-                                        <h3>Software</h3>
-                                        <ul class="spec-list">
-                                            <li>Rekordbox (Performance Mode)</li>
-                                            <li>OBS Studio (Streaming Ready)</li>
-                                            <li>Ableton Live 11</li>
-                                        </ul>
-                                    </div>
-                                </div>-->
-                            </section>
-
-                            <section id="rental_check">
-                                <h1 class="cover-heading">DJ & Audio Equipment Rental</h1>
-                                <h2 id="DjEq">Index</h2>
-                            </section>
-
-                            <!-- Top Index -->
-                            <ul class="index_rent">
-                                <li class="category_rent">
-                                    <a href="#DjEq">DJ</a>
-                                    <ul>
-                                        <li><a href="#dj1">DDJ-XP2</a></li>
-                                        <li><a href="#dj2">S4-MK2</a></li>
-                                        <li><a href="#dj3">Kontrol-F1</a></li>
-                                        <li><a href="#dj4">Kontrol-Z1</a></li>
-                                        <li><a href="#dj5">Kontrol-X1</a></li>
-                                        <li><a href="#dj6">XDJ-700</a></li>
-                                        <li><a href="#dj8">DJM-450</a></li>
-                                    </ul>
-                                </li>
-                                <li class="category_rent">
-                                    <a href="#StudioEq">Studio</a>
-                                    <ul>
-                                        <li><a href="#studio1">Kontrol-A25</a></li>
-                                    </ul>
-                                </li>
-                                <li class="category_rent">
-                                    <a href="#AudioEq">Audio</a>
-                                    <ul>
-                                        <li><a href="#audio1">PH12-BT</a></li>
-                                        <li><a href="#audio3">Soundcraft-8fx</a></li>
-                                    </ul>
-                                </li>
-                                <li class="category_rent">
-                                    <a href="#Bundles">Bundles</a>
-                                    <ul>
-                                        <li><a href="#bundle1">Bundle 1</a></li>
-                                        <li><a href="#bundle2">Bundle 2</a></li>
-                                        <li><a href="#bundle3">Bundle 3</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-
-                            <h2 id="DjEq">DJ Equipment</h2>
-
-                            <dl id="dj1" class="row">
-                                <!-- DDJ-XP2 -->
-                                <dt class="col-md-3 col-sm-12">
-                                    DDJ-XP2
-                                    <img src="/media/Equipment/DJ_Devices/DDJ-XP2.jpg"
-                                         alt="DDJ-XP2 Image"
-                                         class="img-fluid stylish-image mt-2"
-                                         data-bs-toggle="modal"
-                                         data-bs-target="#imageModal" />
-                                </dt>
-                                <dd class="col-md-9 col-sm-12">
-                                    <p> <b>Sub controller for rekordbox & Serato DJ Pro </b> </p>
-
-                                    <p>Level up with the DDJ-XP2 add-on DJ controller for rekordbox and Serato DJ Pro. The DDJ-XP2 enhances your setup with 32 robust, multicolored Performance Pads, and puts powerful pad modes at your fingertips.</p>
-                                    <p></p>
-                                    <p> - Price per day (24 Hrs.): 150.00 NOK</p>
-                                    <p></p>
-                                    <p>Includes:</p>
-                                    <ul>
-                                        <li>DDJ-XP2</li>
-                                        <li>USB Cable</li>
-                                    </ul>
-                                </dd>
-                            </dl>
-
-                            <dl id="dj2" class="row">
-                                <!-- S4-MK2 -->
-                                <dt class="col-md-3 col-sm-12">
-                                    S4-MK2
-                                    <img src="/media/Equipment/DJ_Devices/S4-MK2.jpg"
-                                         alt="S4-MK2 Image"
-                                         class="img-fluid stylish-image mt-2"
-                                         data-bs-toggle="modal"
-                                         data-bs-target="#imageModal" />
-                                </dt>
-                                <dd class="col-md-9 col-sm-12">
-                                    <p> <b>Native Instruments Traktor Kontrol S4 MK2 Controller </b> </p>
-
-                                    <p>The Native Instruments Traktor Kontrol S4 MK2 DJ Controller is a portable, 4-channel all-in-one DJ controller that is perfect for traveling DJs. Offering portability, a user-friendly interface and plug-and-play operation. </p>
-                                    <p></p>
-                                    <p> - Price per day (24 Hrs.): 500.00 NOK</p>
-                                    <p></p>
-                                    <p>Includes:</p>
-                                    <ul>
-                                        <li>S4 MK2 DJ Controller</li>
-                                        <li>USB Cable</li>
-                                        <li>Power Cord</li>
-                                    </ul>
-                                </dd>
-                            </dl>
-
-                            <dl id="dj3" class="row">
-                                <!-- Kontrol-F1 -->
-                                <dt class="col-md-3 col-sm-12">
-                                    Kontrol-F1
-                                    <img src="/media/Equipment/DJ_Devices/Kontrol-F1.jpg"
-                                         alt="Kontrol-F1 Image"
-                                         class="img-fluid stylish-image mt-2"
-                                         data-bs-toggle="modal"
-                                         data-bs-target="#imageModal" />
-                                </dt>
-                                <dd class="col-md-9 col-sm-12">
-                                    <p><b>NI DJ Remix Controller</b></p>
-                                    <p>Dedicated control for Stems and Remix Decks that delivers hands-on, live remixing opportunities</p>
-                                    <p></p>
-                                    <p> - Price per day (24 Hrs.): 250.00 NOK</p>
-                                    <p></p>
-                                    <p>Includes:</p>
-                                    <ul>
-                                        <li>Kontrol-F1</li>
-                                        <li>USB Cable</li>
-                                    </ul>
-                                </dd>
-                            </dl>
-
-                            <dl id="dj4" class="row">
-                                <!-- Kontrol-Z1 -->
-                                <dt class="col-md-3 col-sm-12">
-                                    Kontrol-Z1
-                                    <img src="/media/Equipment/DJ_Devices/Kontrol-Z1.jpg"
-                                         alt="Kontrol-Z1 Image"
-                                         class="img-fluid stylish-image mt-2"
-                                         data-bs-toggle="modal"
-                                         data-bs-target="#imageModal" />
-                                </dt>
-                                <dd class="col-md-9 col-sm-12">
-                                    <p><b>NI Compact DJ Controller</b></p>
-                                    <p>A very compact, two channel no-frills mixer designed especially for Native Instruments’ range of DJ software.</p>
-                                    <p></p>
-                                    <p> - Price per day (24 Hrs.): 250.00 NOK</p>
-                                    <p></p>
-                                    <p>Includes:</p>
-                                    <ul>
-                                        <li>Kontrol-Z1</li>
-                                        <li>USB Cable</li>
-                                    </ul>
-                                </dd>
-                            </dl>
-
-                            <dl id="dj5" class="row">
-                                <!-- Kontrol-X1 -->
-                                <dt class="col-md-3 col-sm-12">
-                                    Kontrol-X1
-                                    <img src="/media/Equipment/DJ_Devices/Kontrol-X1.jpg"
-                                         alt="Kontrol-X1 Image"
-                                         class="img-fluid stylish-image mt-2"
-                                         data-bs-toggle="modal"
-                                         data-bs-target="#imageModal" />
-                                </dt>
-                                <dd class="col-md-9 col-sm-12">
-                                    <p><b>NI Compact DJ Controller</b></p>
-                                    <p>This controller provides an instant command of your decks and effect parameters. </p>
-                                    <p></p>
-                                    <p> - Price per day (24 Hrs.): 250.00 NOK</p>
-                                    <p></p>
-                                    <p>Includes:</p>
-                                    <ul>
-                                        <li>Kontrol-X1</li>
-                                        <li>USB Cable</li>
-                                    </ul>
-                                </dd>
-                            </dl>
-
-                            <dl id="dj6" class="row">
-                                <!-- XDJ-700 -->
-                                <dt class="col-md-3 col-sm-12">
-                                    XDJ-700
-                                    <img src="/media/Equipment/DJ_Devices/XDJ-700.jpg"
-                                         alt="XDJ-700 Image"
-                                         class="img-fluid stylish-image mt-2"
-                                         data-bs-toggle="modal"
-                                         data-bs-target="#imageModal" />
-                                </dt>
-                                <dd class="col-md-9 col-sm-12">
-                                    <p><b>Compact DJ multi player</b></p>
-                                    <p>Comes with a large touchscreen, a familiar club layout and it inherits a host of features from its big brother, the XDJ-1000. Its compact size and removable stand offer great set-up possibilities for even the smallest booth or home set-up.</p>
-                                    <p></p>
-                                    <p> - Price per day (24 Hrs.): 600.00 NOK</p>
-                                    <p></p>
-                                    <p>Includes:</p>
-                                    <ul>
-                                        <li>XDJ-700</li>
-                                        <li>Power Cord</li>
-                                    </ul>
-                                </dd>
-                            </dl>
-
-                            <dl id="dj8" class="row">
-                                <!-- DJM-450 -->
-                                <dt class="col-md-3 col-sm-12">
-                                    DJM-450
-                                    <img src="/media/Equipment/DJ_Devices/DJM-450.jpg"
-                                         alt="DJM-450 Image"
-                                         class="img-fluid stylish-image mt-2"
-                                         data-bs-toggle="modal"
-                                         data-bs-target="#imageModal" />
-                                </dt>
-                                <dd class="col-md-9 col-sm-12">
-                                    <p><b>2-channel DJ mixer with Beat FX</b></p>
-                                    <p>This 2-channel mixer is ideal to partner with any of our multiplayers. The Magvel fader combined with smooth EQ and channel fader curves give an assured feel to mixing. Sound Colour FX and Beat FX with parameter control open up new creative possibilities. And thanks to the 64-bit digital signal processer you’ll enjoy warm, high-quality audio from both analogue and digital sound sources.</p>
-                                    <p></p>
-                                    <p> - Price per day (24 Hrs.): 600.00 NOK</p>
-                                    <p></p>
-                                    <p>Includes:</p>
-                                    <ul>
-                                        <li>DJM-450</li>
-                                        <li>Power Cord</li>
-                                    </ul>
-                                </dd>
-                            </dl>
-
-                            <h2 id="StudioEq">Studio Equipment</h2>
-
-                            <dl id="studio1" class="row">
-                                <!-- Kontrol-A25 -->
-                                <dt class="col-md-3 col-sm-12">
-                                    Kontrol-A25
-                                    <img src="/media/Equipment/Studio_Devices/Kontrol-A25.jpg"
-                                         alt="PH12-BT Image"
-                                         class="img-fluid stylish-image mt-2"
-                                         data-bs-toggle="modal"
-                                         data-bs-target="#imageModal" />
-                                </dt>
-                                <dd class="col-md-9 col-sm-12">
-                                    <p> <b>Native Instruments Komplete streamlined keyboard controller</b> </p>
-                                    <p>Intuitive pre-programmed control for hundreds of KOMPLETE and NKS plug-ins, plus full VST support. Full integration with MASCHINE, Logic Pro X, GarageBand and Ableton Live, Cubase and Nuendo.</p>
-                                    <p></p>
-                                    <p> - Price per day: 300.00 NOK</p>
-                                    <p></p>
-                                    <p>Includes:</p>
-                                    <ul>
-                                        <li>Kontrol-A25 Keyboard</li>
-                                        <li>USB Cable</li>
-                                    </ul>
-                                </dd>
-                            </dl>
-
-                            <h2 id="AudioEq">Audio Equipment</h2>
-
-                            <dl id="audio1" class="row">
-                                <!-- PH12-BT -->
-                                <dt class="col-md-3 col-sm-12">
-                                    PH12-BT
-                                    <img src="/media/Equipment/Audio_Devices/PH12-BT.jpg"
-                                         alt="PH12-BT Image"
-                                         class="img-fluid stylish-image mt-2"
-                                         data-bs-toggle="modal"
-                                         data-bs-target="#imageModal" />
-                                </dt>
-                                <dd class="col-md-9 col-sm-12">
-                                    <p> <b>BST PH12-BT Active PA Speaker 12" Bluetooth 500W</b> </p>
-                                    <p>Versatile speaker box fitted with top and side-mounted handles for ease of transport. Works with Bluetooth, SD Cards or USBs, or connected through RCA or XLR cables.</p>
-                                    <p></p>
-                                    <p> - Price per day: 400.00 NOK</p>
-                                    <p></p>
-                                    <p>Includes:</p>
-                                    <ul>
-                                        <li>PH12-BT Speaker</li>
-                                        <li>Support Tripod</li>
-                                        <li>Power Cord</li>
-                                    </ul>
-                                </dd>
-                            </dl>
-
-                            <dl id="audio3" class="row">
-                                <!-- Soundcraft-8fx -->
-                                <dt class="col-md-3 col-sm-12">
-                                    Soundcraft-8fx
-                                    <img src="/media/Equipment/Audio_Devices/Soundcraft-8fx.jpg"
-                                         alt="Soundcraft-8fx Image"
-                                         class="img-fluid stylish-image mt-2"
-                                         data-bs-toggle="modal"
-                                         data-bs-target="#imageModal" />
-                                </dt>
-                                <dd class="col-md-9 col-sm-12">
-                                    <p> <b>Small-format Analog Mixing Console with USB I/O and Lexicon Effects</b> </p>
-                                    <p>Get legendary Soundcraft quality. Easily record, edit and playback from your Mac and PC with an integrated USB audio interface—simply plug-and-play. Getting a great mix is easy with a familiar channel strip layout that includes EQ, aux send, master fader level and rotary headphone volume control. </p>
-                                    <p></p>
-                                    <p> - Price per day: 150.00 NOK</p>
-                                    <p></p>
-                                    <p>Includes:</p>
-                                    <ul>
-                                        <li>Soundcraft-8fx Mixer</li>
-                                        <li>Power Cord</li>
-                                    </ul>
-                                </dd>
-                            </dl>
-
-                            <h2 id="Bundles">Bundles</h2>
-
-                            <dl id="bundle1" class="row bundle-container">
-
-                                <dt>Portable Controller Bundle</dt>
-                                <dd class="bundle-images">
-                                    <img src="/media/Equipment/DJ_Devices/Kontrol-F1.jpg" alt="Bundle1 Image 1">
-                                    <img src="/media/Equipment/DJ_Devices/Kontrol-Z1.jpg" alt="Bundle1 Image 2">
-                                    <img src="/media/Equipment/DJ_Devices/Kontrol-X1.jpg" alt="Bundle1 Image 3">
-                                </dd>
-
-                                <dd class="bundle-text">
-                                    <p>The Portable Controller Bundle is a compact and versatile DJ setup designed for ultimate flexibility. Featuring the Kontrol-F1, Kontrol-Z1, and Kontrol-X1, this bundle is perfect for DJs who need a lightweight yet powerful solution for mixing, effects, and performance control. Ideal for on-the-go setups or creative digital DJing. </p>
-                                    <p></p>
-                                    <p>- Price per day: 600.00 NOK</p>
-                                    <p>Includes:</p>
-                                    <ul>
-                                        <li>Kontrol-F1</li>
-                                        <li>Kontrol-Z1</li>
-                                        <li>Kontrol-X1</li>
-                                    </ul>
-                                </dd>
-
-                            </dl>
-
-                            <dl id="bundle2" class="row bundle-container">
-
-                                <dt>Basic Performer Bundle</dt>
-                                <dd class="bundle-images">
-                                    <img src="/media/Equipment/DJ_Devices/XDJ-700.jpg" alt="Bundle2 Image 1">
-                                    <img src="/media/Equipment/DJ_Devices/DJM-450.jpg" alt="Bundle2 Image 2">
-                                    <img src="/media/Equipment/DJ_Devices/XDJ-700.jpg" alt="Bundle2 Image 3">
-                                </dd>
-
-                                <dd class="bundle-text">
-                                    <p>The Basic Performer Bundle is a compact yet powerful setup for DJs looking for professional performance in a smaller package. It includes two XDJ-700 players and a DJM-450 mixer, offering intuitive controls, high-quality sound, and seamless mixing capabilities. Perfect for mobile DJs, small events, or home practice sessions. </p>
-                                    <p></p>
-                                    <p>- Price per day: 1400.00 NOK</p>
-                                    <p>Includes:</p>
-                                    <ul>
-                                        <li>2x XDJ-700</li>
-                                        <li>1x DJM-450</li>
-                                    </ul>
-                                </dd>
-
-                            </dl>
-
-                            <dl id="bundle3" class="row bundle-container">
-
-                                <dt>Basic Audio Bundle</dt>
-                                <dd class="bundle-images">
-                                    <img src="/media/Equipment/Audio_Devices/PH12-BT.jpg" alt="Bundle3 Image 1">
-                                    <img src="/media/Equipment/Audio_Devices/PH12-BT.jpg" alt="Bundle3 Image 2">
-                                    <img src="/media/Equipment/Audio_Devices/Soundcraft-8fx.jpg" alt="Bundle3 Image 3">
-                                </dd>
-
-                                <dd class="bundle-text">
-                                    <p>This Basic Audio Bundle is perfect for small events, gatherings, or performances, offering a reliable and high-quality sound experience. It includes two PH12-BT speakers for powerful audio output and a Soundcraft-8FX mixer to fine-tune your sound with ease. With included XLR cables, setup is quick and hassle-free, making it an ideal choice for DJs, presenters, and musicians. </p>
-                                    <p></p>
-                                    <p>- Price per day: 700.00 NOK</p>
-                                    <p>Includes:</p>
-                                    <ul>
-                                        <li>2x PH12-BT</li>
-                                        <li>1x Soundcraft-8fx</li>
-                                        <li>2x 10m XLR Cables</li>
-                                    </ul>
-                                </dd>
-
-                            </dl>
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
 
 </body>
 </html>

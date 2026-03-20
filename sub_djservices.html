@@ -1,43 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <!-- Bootstrap core CSS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Husbeat | Services</title>
+
     <link href="./static/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
     <link href="./static/style.css" rel="stylesheet">
+    <link href="./static/djservice.css" rel="stylesheet">
 
-    <!-- fontawesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="shortcut icon" href="./media/HusbeatHead.png">
-
-    <title> Husbeat | DJ Services </title>
 
 </head>
 
 <body class="subpage">
 
-    <!--Bootstrap JS (Ensure Bootstrap JavaScript is loaded)-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
     <div id="header-placeholder"></div>
-    <script>
-        fetch('/components/header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading header:', error));
-    </script>
 
     <div class="site-wrapper">
+        <div class="site-wrapper-inner">
+            <div class="cover-container px-3">
+
+                <section id="services_check" class="py-5">
+                    <h1 class="cover-heading mb-4 text-center">DJ Services</h1>
+
+                    <div class="hero-wrapper shadow-lg">
+                        <img src="./media/Props/prop_1.jpg" alt="Performance at Sellanraa" class="services-img">
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="col-md-10 text-start">
+                            <p class="lead">Professional DJ services tailored to enhance your special occasions, from private events and parties to club nights.</p>
+                            <p>I specialize in <strong>Latin rhythms, House genres, and Progressive Trance</strong>, but I am always happy to customize a playlist that fits your specific vibe and preferences.</p>
+                            <p>Pricing is flexible and negotiable based on duration and event details.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <hr class="my-5 opacity-25">
+
+                <section id="courses_check" class="pb-5">
+                    <h1 class="cover-heading mb-5 text-center">Become a DJ</h1>
+
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="service-card">
+                                <h3 class="text-info mb-3"><i class="fa-solid fa-headphones me-2"></i> Private Lessons</h3>
+                                <p>Perfect for those looking to improve specific skills. Whether you're curious about mixing or refining your technique, we tailor the session to your goals.</p>
+                                <ul class="list-unstyled text-secondary small">
+                                    <li><i class="fa-solid fa-check text-success me-2"></i> One-on-one attention</li>
+                                    <li><i class="fa-solid fa-check text-success me-2"></i> Flexible skill level</li>
+                                    <li><i class="fa-solid fa-check text-success me-2"></i> Hands-on equipment time</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="service-card">
+                                <h3 class="text-info mb-3"><i class="fa-solid fa-users me-2"></i> Group Workshops</h3>
+                                <p>Learn the fundamentals of DJing in a fun, social environment. Great for beginners exploring a new creative hobby.</p>
+                                <ul class="list-unstyled text-secondary small">
+                                    <li><i class="fa-solid fa-check text-success me-2"></i> Beatmatching & Mixing basics</li>
+                                    <li><i class="fa-solid fa-check text-success me-2"></i> Software & Hardware exploration</li>
+                                    <li><i class="fa-solid fa-check text-success me-2"></i> No prior experience needed</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="text-center py-5">
+                    <p class="lead mb-4">Interested in booking a service or a lesson?</p>
+                    <a href="sub_contact.html" class="btn btn-lg btn-outline-info px-5">Get in Touch</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!--<div class="site-wrapper">
         <div class="site-wrapper-inner">
             <div class="cover-container">
                 <div class="inner cover">
@@ -95,7 +139,14 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        fetch('/components/header.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('header-placeholder').innerHTML = data);
+    </script>
 
 </body>
 </html>

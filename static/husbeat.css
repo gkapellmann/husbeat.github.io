@@ -1,0 +1,52 @@
+/* The Hero Section with Background Image */
+.hero-header {
+    position: relative;
+    width: 100%;
+    /* Reduced height so the image isn't forced to scale up so much */
+    height: 550px;
+    /* Linear gradient adds a dark tint so the logo stays visible */
+
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('/media/Background.jpg');
+    /* 'contain' shows the whole image, 'cover' fills the box. 
+               Let's use 'cover' but with a specific percentage to 'zoom out' */
+    
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.hero-logo {
+    /* Max-height prevents the logo from taking over the whole banner */
+    max-height: 90px;
+    width: auto;
+    filter: drop-shadow(0 0 20px rgba(0,0,0,0.8));
+}
+
+.intro-text p {
+    color: #b0b0b0; /* Our Silver color */
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.welcome-title {
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-top: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+/* Responsive height for mobile */
+@media (max-width: 768px) {
+    .hero-header {
+        height: 250px;
+    }
+
+    .hero-logo {
+        max-height: 120px;
+    }
+}

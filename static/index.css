@@ -1,69 +1,91 @@
+/* ****** Index Events Component ****** */
 
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-
-/* ****** Index Events CSS ****** */
 #event-list {
-    background-color: #000; /* Ensuring the container is black */
-    padding: 20px;
-    color: #fff;
+    padding: 0; /* Let the container handle outer padding */
+    margin: 0;
+    list-style: none;
 }
 
 .event-item {
     display: flex;
     align-items: center;
-    padding: 15px 0;
-    border-bottom: 1px solid #333; /* Subtle dark divider */
-    list-style: none;
+    padding: 20px 0;
+    border-bottom: 1px solid #222; /* Slightly darker for a cleaner look */
 }
 
-/* Date and Time styling */
+/* Date and Time Container */
 .event-date-box {
-    min-width: 140px;
+    min-width: 150px;
     display: flex;
     flex-direction: column;
+    flex-shrink: 0; /* Prevents the date from squishing */
 }
 
 .date-text {
-    color: #fff; /* Bright white for the date */
+    color: #fff;
     font-weight: 800;
     text-transform: uppercase;
-    font-size: 0.9em;
+    font-size: 0.95em;
     letter-spacing: 1px;
 }
 
 .time-text {
-    color: #00ffcc; /* Neon teal for the time - looks great on black */
+    color: #00ffcc; /* Neon teal */
     font-size: 0.85em;
     margin-top: 4px;
+    font-weight: 700;
 }
 
-/* Title and Location */
+/* Title and Location Container */
 .event-details {
-    margin-left: 20px;
+    margin-left: 25px;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap; /* Allows location to drop to next line if name is long */
 }
 
-/* Active Link styling */
+/* Link Styling */
 .event-link {
     color: #fff;
     text-decoration: none;
-    border-bottom: 2px solid #00ffcc; /* Visual cue it's a link */
-    transition: color 0.3s ease;
-    font-weight: 600;
+    border-bottom: 2px solid #00ffcc;
+    transition: all 0.3s ease;
+    font-weight: 700;
+    margin-right: 10px;
 }
 
     .event-link:hover {
         color: #00ffcc;
+        border-bottom-color: #fff;
     }
 
-/* Static Name (when link is empty) */
+/* Static Name (No Link) */
 .event-name-static {
-    color: #aaa; /* Slightly dimmed so it doesn't look like a button */
-    font-weight: 800;
+    color: #eee;
+    font-weight: 700;
+    margin-right: 10px;
     cursor: default;
 }
 
 .event-location {
-    color: white;
-    font-size: 1.1em;
-    margin-left: 10px;
+    color: #888; /* Dimmed slightly so the Name stands out */
+    font-size: 0.95em;
+    font-weight: 400;
+}
+
+/* Mobile Optimization */
+@media (max-width: 600px) {
+    .event-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .event-details {
+        margin-left: 0;
+    }
+
+    .event-date-box {
+        min-width: auto;
+    }
 }

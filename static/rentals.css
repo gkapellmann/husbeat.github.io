@@ -1,86 +1,197 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-
-/* Styling for the top index */
-.index_rent {
-    display: flex;
-    justify-content: space-around;
-    list-style: none;
-    padding: 10px;
-    background: #222;
-    color: white;
-}
-
-lists {
-    list-style: none;
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
-    font-family: 'Inter', sans-serif;  Or any clean sans-serif 
-    display: flex;
-    gap: 15px;
-}
+/* ****** Studio Rental Section ****** */
 
 .studio-rental {
     max-width: 900px;
     margin: 0 auto;
     padding: 40px 20px;
     color: #fff;
-    font-family: 'Inter', sans-serif;
+    /* Font is inherited from General CSS, but we ensure clean lines here */
 }
 
+/* Category Index (The top horizontal list) */
+.index_rent {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 20px;
+    background: #111; /* Darkened to match site theme */
+    border-radius: 10px;
+    color: white;
+    margin-bottom: 30px;
+}
+
+/* Reusable List Style (Fixed the "lists" typo) */
+.spec-item-row {
+    list-style: none;
+    padding: 12px 0;
+    border-bottom: 1px solid #222;
+    display: flex;
+    gap: 15px;
+}
+
+/* Usage Tags (Production, Streaming, etc.) */
 .studio-usage {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 12px;
     margin-bottom: 40px;
+}
+
+.tag {
+    background: #222;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #aaa;
+    border: 1px solid #444;
 }
 
 /* Pricing Card */
 .pricing-card {
     background: #111;
     border: 1px solid #333;
-    padding: 30px;
+    padding: 35px;
     border-radius: 12px;
     text-align: center;
     margin: 40px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
 .price-main {
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 1.8rem; /* Slightly larger for impact */
+    font-weight: 700;
     color: #fff;
 }
 
     .price-main .small {
         font-size: 1rem;
-        color: #fff;
+        color: #888; /* Dimmed slightly so '400 NOK' pops more */
+        font-weight: 400;
     }
 
 .price-extra {
-    color: #0088bb;
+    color: #0088bb; /* Your chosen blue */
     margin: 10px 0 20px;
+    font-weight: 600;
 }
 
+/* Booking Button */
 .booking-btn {
     display: inline-block;
     background: #0088bb;
-    color: #000;
-    padding: 12px 30px;
+    color: #fff; /* Changed to white for better contrast with blue */
+    padding: 14px 35px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
     .booking-btn:hover {
         transform: scale(1.05);
+        background: #00aaff; /* Subtle highlight on hover */
     }
 
-/* Tags */
-.studio-usage {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 40px;
+
+
+/* For the Bundle Thumbnails */
+.bundle-container {
+    background: rgba(255, 255, 255, 0.03); /* Very subtle dark overlay */
+    border: 1px solid #333 !important; /* Muted border */
+    padding: 2rem;
+    margin-bottom: 3rem;
+    border-radius: 8px;
 }
 
+    .bundle-container h3 {
+        color: #0dcaf0; /* Husbeat Cyan/Info color */
+        letter-spacing: 1px;
+    }
+
+    .bundle-container p {
+        color: #ccc; /* Light gray text for readability */
+    }
+
+/* Fix: Explicitly remove any card-style background */
+.bundle-row-special {
+    background: none !important; /* Forces background-less */
+    display: flex; /* Bootstrap row substitute to ensure control */
+    flex-wrap: wrap;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important; /* Subtle separator */
+}
+
+    /* Ensure the Images Column and Text Column follow the 5/7 split from JS */
+    .bundle-row-special .col-md-5 {
+        padding: 0; /* Remove default Bootstrap padding */
+    }
+
+/* The Bundle Gallery Grid */
+.bundle-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); /* At least 110px wide */
+    gap: 10px; /* Tight, small gap between items */
+    justify-content: start; /* Align to the left */
+}
+
+/* The Individual Gallery Items */
+.bundle-gallery-item img {
+    width: 100%;
+    height: 110px; /* Force consistent height for uniformity */
+    object-fit: cover; /* Prevents gear from stretching */
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+    .bundle-gallery-item img:hover {
+        transform: scale(1.05);
+        border-color: #0dcaf0; /* Cyan glow on hover */
+    }
+
+/* Ensure images don't look "stuck" together */
+.mini-thumb {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border: 1px solid #444;
+    transition: transform 0.2s;
+}
+
+    .mini-thumb:hover {
+        transform: scale(1.1);
+        border-color: #0dcaf0;
+    }
+
+
+
+
+
+.category_rent ul li {
+    margin-bottom: 4px;
+}
+
+.category_rent ul li a {
+    color: #6c757d; /* Gray color for item names */
+    transition: color 0.2s ease-in-out;
+}
+
+.category_rent ul li a:hover {
+    color: #0dcaf0; /* Information blue on hover */
+}
+
+/* Mobile Tweak */
+@media (max-width: 600px) {
+    .index_rent {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
+
+/* Fix spacing on Mobile */
+@media (max-width: 768px) {
+    .bundle-gallery-grid {
+        justify-content: center; /* Center images on mobile */
+        grid-template-columns: repeat(3, 1fr); /* Force 3 columns on small phones */
+    }
+}

@@ -1,10 +1,29 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+/* ****** Concepts & Gallery Images ****** */
 
 .concepts-image {
-    max-width: 100%; /* Ensures it stays responsive */
-    width: 80%; /* Adjusts the size, increase/decrease as needed */
     display: block;
-    margin: 0 auto; /* Centers horizontally */
+    width: 80%;
+    max-width: 1000px; /* Prevents the image from becoming huge on ultrawide monitors */
     height: auto;
+    margin: 40px auto; /* Centers horizontally and adds vertical breathing room */
+    border-radius: 12px;
+    border: 1px solid #222; /* Subtle edge definition against the black background */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+    /* Add a premium feel when hovering over a concept image */
+    .concepts-image:hover {
+        transform: scale(1.02);
+        box-shadow: 0 10px 30px rgba(0, 136, 187, 0.3); /* Uses your #0088bb blue for a soft glow */
+        border-color: #0088bb;
+    }
+
+/* Mobile Adjustment */
+@media (max-width: 768px) {
+    .concepts-image {
+        width: 100%; /* Take full width on phones */
+        margin: 20px auto;
+        border-radius: 8px;
+    }
 }

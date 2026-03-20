@@ -47,16 +47,16 @@
                 </div>
 
                 <div class="grid-container">
-                    <a href="/sub_concepts.html" class="grid-item">
-                        <img src="./media/Intro/concepts.jpg" alt="concepts">
-                        <h3>Concepts</h3>
-                    </a>
                     <a href="/sub_djservices.html#services_check" class="grid-item">
                         <img src="./media/Intro/service.jpg" alt="services">
                         <h3>Services</h3>
                     </a>
-                    <a href="/sub_rentals.html#studio_check" class="grid-item">
-                        <img src="./media/Intro/studio.jpg" alt="studio">
+                    <a href="/sub_concepts.html" class="grid-item">
+                        <img src="./media/Intro/concepts.jpg" alt="concepts">
+                        <h3>Concepts</h3>
+                    </a>
+                    <a href="/sub_studio.html#studio_check" class="grid-item">
+                        <img src="./media/Studio/studio-9.jpg" alt="studio">
                         <h3>Studio</h3>
                     </a>
                     <a href="/sub_rentals.html#rental_check" class="grid-item">
@@ -81,7 +81,7 @@
 
         async function loadEvents() {
             try {
-                const response = await fetch('events.json'); 
+                const response = await fetch('/json/events.json'); 
                 const events = await response.json();
 
                 const list = document.getElementById('events-list');

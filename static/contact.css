@@ -1,29 +1,43 @@
+/* ****** Social Media & Contact Icons ****** */
 
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-
-/******************************************************************************************/
-/* SoMe Links */
 .links {
-    display: flex; /* Make icons appear in a row */
-    gap: 55px; /* Spacing between icons */
+    display: flex;
+    flex-wrap: wrap; /* Allows icons to wrap on small phone screens */
+    gap: 40px; /* Slightly reduced gap for better mobile fitting */
+    margin-top: 30px;
+    justify-content: flex-start;
 }
 
     .links a {
-        margin: 0; /* Remove vertical spacing that caused stacking */
-        text-align: left;
         text-decoration: none;
-        color: inherit;
+        color: #fff; /* Default icons to white for high contrast */
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
-        .links a:focus {
-            color: #69bee0;
-        }
-
-        .links a:hover {
-            color: #498299;
-            text-decoration: none;
-        }
-
+    /* Icon Size */
     .links i {
-        font-size: 60px; /* Adjust the size of the icons (larger size) */
+        font-size: 55px;
     }
+
+    /* Hover & Focus Effects */
+    .links a:hover,
+    .links a:focus {
+        color: #0088bb; 
+        transform: translateY(-5px); /* Subtle lift effect */
+        text-shadow: 0 0 15px rgba(0, 255, 204, 0.6); /* Neon glow */
+    }
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .links {
+        gap: 30px;
+        justify-content: center; /* Center icons on mobile */
+    }
+
+        .links i {
+            font-size: 45px; /* Slightly smaller for mobile screens */
+        }
+}
