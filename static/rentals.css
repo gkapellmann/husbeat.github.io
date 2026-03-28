@@ -179,6 +179,61 @@
     color: #0dcaf0; /* Information blue on hover */
 }
 
+
+
+
+
+
+/* *** Custom tweak for the Studio Header Gallery ****************************************** */
+.studio-gallery-container {
+    max-width: 700px; /* Adjust this to show roughly 4 images at 150px each */
+    margin: 25px auto 40px;
+    overflow: hidden;
+}
+
+/* The actual scrolling row */
+.studio-gallery-scroll {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 15px; /* Space for the scrollbar so it doesn't touch images */
+    scroll-snap-type: x mandatory; /* Makes images "snap" into place */
+    scrollbar-width: thin; /* Firefox styling */
+    scrollbar-color: #0dcaf0 #111; /* Cyan thumb on dark track */
+}
+
+    /* Styling the scrollbar for Chrome/Safari/Edge */
+    .studio-gallery-scroll::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .studio-gallery-scroll::-webkit-scrollbar-track {
+        background: #111;
+    }
+
+    .studio-gallery-scroll::-webkit-scrollbar-thumb {
+        background: #0dcaf0;
+        border-radius: 10px;
+    }
+
+    /* Individual item sizing */
+    .studio-gallery-scroll .bundle-gallery-item {
+        flex: 0 0 160px; /* Fixed width: images won't shrink */
+        scroll-snap-align: start;
+    }
+
+        .studio-gallery-scroll .bundle-gallery-item img {
+            width: 100%;
+            height: 110px;
+            object-fit: cover;
+            border: 1px solid #333;
+            border-radius: 6px;
+        }
+
+
+
+
+
 /* Mobile Tweak */
 @media (max-width: 600px) {
     .index_rent {
