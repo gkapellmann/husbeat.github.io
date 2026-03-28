@@ -29,6 +29,57 @@
     gap: 15px;
 }
 
+.specs-container {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    align-items: flex-start;
+    margin-top: 40px;
+}
+
+.spec-column {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.02); /* Very subtle background to define the area */
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.spec-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 350px; /* Adjust this height to your liking */
+    overflow-y: auto; /* Adds scrollbar only when content exceeds max-height */
+    padding-right: 10px; /* Space so text doesn't hit the scrollbar */
+}
+
+    /* Custom Scrollbar Styling (Matches your gallery) */
+    .spec-list::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    .spec-list::-webkit-scrollbar-track {
+        background: #111;
+    }
+
+    .spec-list::-webkit-scrollbar-thumb {
+        background: #0dcaf0;
+        border-radius: 10px;
+    }
+
+/* Ensure headings align with your theme */
+.spec-column h3 {
+    color: #0dcaf0; /* Matches your Husbeat Cyan theme */
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+
+
+
 /* Usage Tags (Production, Streaming, etc.) */
 .studio-usage {
     display: flex;
@@ -234,7 +285,7 @@
 
 
 
-/* Mobile Tweak */
+/* *** Mobile Tweaks ******************************* */
 @media (max-width: 600px) {
     .index_rent {
         flex-direction: column;
@@ -248,5 +299,17 @@
     .bundle-gallery-grid {
         justify-content: center; /* Center images on mobile */
         grid-template-columns: repeat(3, 1fr); /* Force 3 columns on small phones */
+    }
+}
+
+/* Mobile: Stack them and remove the fixed height for easier reading */
+@media (max-width: 768px) {
+    .specs-container {
+        flex-direction: column;
+    }
+
+    .spec-list {
+        max-height: none;
+        overflow-y: visible;
     }
 }

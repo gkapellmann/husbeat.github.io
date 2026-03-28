@@ -1,0 +1,4 @@
+body.subpage {
+    /* Adjust 80px based on the height of your header */
+    padding-top: 80px;
+}
