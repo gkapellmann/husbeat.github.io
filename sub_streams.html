@@ -23,12 +23,16 @@
         <div class="container my-5">
             <h3>Latest Content</h3>
             <div class="row">
+
                 <div class="col-md-6 mb-4">
                     <h5>YouTube</h5>
                     <div class="ratio ratio-16x9 shadow-sm">                        
-                        <iframe id="yt-latest"
-                                src="https://www.youtube.com/embed/videoseries?list=UUWNKIQ8aKCzeD4Z6SYxOoyA"
-                                title="YouTube video" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/videoseries?list=UUWNKIQ8aKCzeD4Z6SYxOoyA"
+                                title="Husbeat YouTube"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen>
+                        </iframe>
                     </div>
                 </div>
 
@@ -47,21 +51,15 @@
     <script>
 
         const channelID = "UCWNKIQ8aKCzeD4Z6SYxOoyA";
-        fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://www.youtube.com/feeds/videos.xml?channel_id=' + channelID)}`)
-            .then(response => response.json())
-            .then(data => {
-                const parser = new DOMParser();
-                const xmlDoc = parser.parseFromString(data.contents, "text/xml");
-                const videoId = xmlDoc.getElementsByTagName('yt:videoId')[0].textContent;
-                if (videoId) {
-                    document.getElementById('yt-latest').src = `https://www.youtube.com/embed/${videoId}?rel=0`;
-                }
-            })
-            .catch(e => console.log("Using playlist fallback for YouTube"));
-
         fetch('/components/header.html')
-            .then(res => res.text())
-            .then(data => document.getElementById('header-placeholder').innerHTML = data);
+            .then(res => {
+                if (!res.ok) throw new Error('Header not found');
+                return res.text();
+            })
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            })
+            .catch(err => console.error("Header loading error:", err));
     </script>
 
 
