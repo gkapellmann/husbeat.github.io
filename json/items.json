@@ -75,7 +75,7 @@
     "type": "item",
     "brand": "Compact DJ multi player",
     "description": "Comes with a large touchscreen and familiar club layout. Inherits features from the XDJ-1000. Compact size and removable stand offer great setup possibilities.",
-    "price": "600.00 NOK",
+    "price": "500.00 NOK",
     "images": [ "/media/Equipment/DJ_Devices/XDJ-700.jpg" ],
     "includes": [ "XDJ-700", "Power Cord" ]
   },
@@ -86,7 +86,7 @@
     "type": "item",
     "brand": "2-channel DJ mixer with Beat FX",
     "description": "Ideal partner for multiplayers. Features Magvel fader, smooth EQ, Sound Colour FX, and Beat FX. 64-bit digital signal processor for warm, high-quality audio.",
-    "price": "600.00 NOK",
+    "price": "500.00 NOK",
     "images": [ "/media/Equipment/DJ_Devices/DJM-450.jpg" ],
     "includes": [ "DJM-450", "Power Cord" ]
   },
@@ -125,7 +125,7 @@
     "name": "Portable Controller Bundle",
     "brand": "Native Instruments",
     "description": "A compact and versatile DJ setup designed for ultimate flexibility. Perfect for on-the-go performance control.",
-    "price": "600.00 NOK",
+    "price": "500.00 NOK",
     "images": [
       "/media/Equipment/DJ_Devices/Kontrol-F1.jpg",
       "/media/Equipment/DJ_Devices/Kontrol-Z1.jpg",
@@ -140,7 +140,7 @@
     "name": "Basic Performer Bundle",
     "brand": "Pioneer DJ",
     "description": "Professional performance in a smaller package. Offering intuitive controls and high-quality sound.",
-    "price": "1400.00 NOK",
+    "price": "1100.00 NOK",
     "images": [
       "/media/Equipment/DJ_Devices/XDJ-700.jpg",
       "/media/Equipment/DJ_Devices/DJM-450.jpg",
