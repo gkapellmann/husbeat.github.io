@@ -1,10 +1,34 @@
 [
   {
+    "date": "2026-04-29",
+    "starttime": "23:00",
+    "endtime": "00:00",
+    "name": "The Playground Sessions (10)",
+    "link": "https://onlineradiobox.com/es/ibizastardust/?cs=es.ibizastardust&played=1",
+    "location": "Ibiza Stardust Radio (https://ibizastardustradio.com/)"
+  },
+  {
+    "date": "2026-05-10",
+    "starttime": "20:00",
+    "endtime": "21:00",
+    "name": "Midnight Hount (Special Session)",
+    "link": "https://onlineradiobox.com/es/ibizastardust/?cs=es.ibizastardust&played=1",
+    "location": "Ibiza Stardust Radio (https://ibizastardustradio.com/)"
+  },
+  {
     "date": "2026-05-15",
     "starttime": "23:00",
     "endtime": "03:00",
     "name": "Husbeat Live",
     "link": "",
     "location": "Bror Solsiden, Trondheim"
+  },
+  {
+    "date": "2026-05-27",
+    "starttime": "18:00",
+    "endtime": "19:00",
+    "name": "The Playground Sessions (11)",
+    "link": "https://onlineradiobox.com/es/ibizastardust/?cs=es.ibizastardust&played=1",
+    "location": "Ibiza Stardust Radio (https://ibizastardustradio.com/)"
   }
 ]
