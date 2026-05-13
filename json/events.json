@@ -1,29 +1,5 @@
 [
   {
-    "date": "2026-04-29",
-    "starttime": "23:00",
-    "endtime": "00:00",
-    "name": "The Playground Sessions (10)",
-    "link": "https://onlineradiobox.com/es/ibizastardust/?cs=es.ibizastardust&played=1",
-    "location": "Ibiza Stardust Radio (https://ibizastardustradio.com/)"
-  },
-  {
-    "date": "2026-05-10",
-    "starttime": "20:00",
-    "endtime": "21:00",
-    "name": "Midnight Hount (Special Session)",
-    "link": "https://onlineradiobox.com/es/ibizastardust/?cs=es.ibizastardust&played=1",
-    "location": "Ibiza Stardust Radio (https://ibizastardustradio.com/)"
-  },
-  {
-    "date": "2026-05-08",
-    "starttime": "17:00",
-    "endtime": "21:00",
-    "name": "Twilight Moods",
-    "link": "",
-    "location": "Olavstorget StreetFood, Trondheim"
-  },
-  {
     "date": "2026-05-15",
     "starttime": "23:00",
     "endtime": "03:00",
@@ -32,10 +8,42 @@
     "location": "Bror Solsiden, Trondheim"
   },
   {
+    "date": "2026-05-17",
+    "starttime": "12:00",
+    "endtime": "17:00",
+    "name": "Husbeat Live",
+    "link": "",
+    "location": "Heidis Bar, Trondheim"
+  },
+  {
     "date": "2026-05-27",
     "starttime": "18:00",
     "endtime": "19:00",
-    "name": "The Playground Sessions (11)",
+    "name": "The Playground Sessions",
+    "link": "https://onlineradiobox.com/es/ibizastardust/?cs=es.ibizastardust&played=1",
+    "location": "Ibiza Stardust Radio (https://ibizastardustradio.com/)"
+  },
+  {
+    "date": "2026-06-06",
+    "starttime": "22:30",
+    "endtime": "02:30",
+    "name": "Reggaeton & Some More",
+    "link": "https://www.facebook.com/events/1397643182254193/",
+    "location": "Bror Solsiden, Trondheim"
+  },
+  {
+    "date": "2026-06-13",
+    "starttime": "12:00",
+    "endtime": "22:30",
+    "name": "Homie-Land Stream",
+    "link": "https://www.twitch.tv/husbeat_dj",
+    "location": "Home-Land, Trondheim"
+  },
+  {
+    "date": "2026-06-25",
+    "starttime": "18:00",
+    "endtime": "19:00",
+    "name": "The Playground Sessions",
     "link": "https://onlineradiobox.com/es/ibizastardust/?cs=es.ibizastardust&played=1",
     "location": "Ibiza Stardust Radio (https://ibizastardustradio.com/)"
   }
