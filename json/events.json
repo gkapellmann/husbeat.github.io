@@ -1,19 +1,19 @@
 [
   {
-    "date": "2026-09-25",
-    "starttime": "22:30",
-    "endtime": "02:30",
-    "name": "Reggaeton & Some More",
-    "link": "",
-    "location": "Bror, Solsiden"
-  },
-  {
     "date": "2026-10-08",
     "starttime": "19:00",
     "endtime": "20:00",
     "name": "The Playground Sessions",
     "link": "https://onlineradiobox.com/es/ibizastardust/?cs=es.ibizastardust&played=1",
     "location": "Ibiza Stardust Radio (https://ibizastardustradio.com/)"
+  },
+  {
+    "date": "2026-10-17",
+    "starttime": "13:00",
+    "endtime": "17:00",
+    "name": "Spicy Saturday",
+    "link": "",
+    "location": "Hector, Solsiden"
   },
   {
     "date": "2026-10-31",
@@ -32,12 +32,20 @@
     "location": "Ibiza Stardust Radio (https://ibizastardustradio.com/)"
   },
   {
+    "date": "2026-11-21",
+    "starttime": "22:30",
+    "endtime": "02:30",
+    "name": "Reggaeton & Some More",
+    "link": "",
+    "location": "Bror, Solsiden"
+  },
+  {
     "date": "2026-12-10",
     "starttime": "21:00",
     "endtime": "22:00",
     "name": "The Playground Sessions",
     "link": "https://onlineradiobox.com/es/ibizastardust/?cs=es.ibizastardust&played=1",
     "location": "Ibiza Stardust Radio (https://ibizastardustradio.com/)"
-  }  
-    
+  }
+
 ]
